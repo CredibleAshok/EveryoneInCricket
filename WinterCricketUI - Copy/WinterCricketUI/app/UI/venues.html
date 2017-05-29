@@ -1,0 +1,89 @@
+﻿<div ng-controller="venuesCtrl as vm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <input type="text" ng-model="vm.listFilter" placeholder="Search in whole table ....." />
+        </div>
+    </div>
+    <table class="table"
+           st-table="tableList"
+           st-table-filtered-list="exportList"
+           st-global-search="vm.listFilter"
+           st-safe-src="vm.venuesList"
+           st-persist="standardTargetList">
+        <tr>
+            <th>
+                Venue Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Country Id
+            </th>
+            <th>
+                State Id
+            </th>
+            <th>
+                Suburb
+            </th>
+            <th>
+                Post Code
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <filter-dropdown search-filter="'venueId'" col-filter="'venueId'" col-data-type="'integar'"></filter-dropdown>
+                <!--<select st-search="'venueId'" class="input-sm form-control"
+                        st-col-filter="venueId"
+                        type="search" st-data-type="integar">
+                    <option value="" label=""></option>
+                </select>-->
+
+            </td>
+            <td>
+                <!--<select st-search="'name'" class="input-sm form-control"
+                        st-col-filter="name"
+                        type="search">
+                    <option value="" label=""></option>
+                </select>-->
+                <filter-dropdown search-filter="'name'" col-filter="'name'"></filter-dropdown>
+            </td>
+            <td>
+                <select st-search="'countryId'" class="input-sm form-control"
+                        st-col-filter="countryId"
+                        type="search" st-data-type="integar">
+                    <option value="" label=""></option>
+                </select>
+            </td>
+            <td>
+                <select st-search="'stateId'" class="input-sm form-control"
+                        st-col-filter="stateId"
+                        type="search" st-data-type="integar">
+                    <option value="" label=""></option>
+                </select>
+            </td>
+            <td>
+                <select st-search="'suburb'" class="input-sm form-control"
+                        st-col-filter="suburb"
+                        type="search">
+                    <option value="" label=""></option>
+                </select>
+            </td>
+            <td>
+                <select st-search="'postCode'" class="input-sm form-control"
+                        st-col-filter="postCode"
+                        type="search" st-data-type="integar">
+                    <option value="" label=""></option>
+                </select>
+            </td>
+        </tr>
+        <tr ng-repeat="row in tableList">
+            <td>{{row.venueId}}</td>
+            <td><a href="#">{{row.name}}</a></td>
+            <td>{{row.countryId}}</td>
+            <td>{{row.stateId}}</td>
+            <td>{{row.suburb}}</td>
+            <td>{{row.postCode}}</td>
+        </tr>
+    </table>
+</div>

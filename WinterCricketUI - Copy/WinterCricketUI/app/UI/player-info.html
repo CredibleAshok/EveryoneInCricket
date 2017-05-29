@@ -1,0 +1,39 @@
+﻿<div ng-controller="playerInfoCtrl as vm">
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ng-class="{'active': vm.activeLink == 'Profile'}">
+                <!--Attention: don't need to pass memberId to these ui-sref, because these are nested views and have already memberid in stateparams service
+                    ui-sref=".playerProfile({memberId: vm.memberId})"
+                    -->
+                <a ui-sref="playerInfo.playerProfile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="vm.activeLink = 'Profile'">Profile</a>
+            </li>
+            <li role="presentation" ng-class="{'active': vm.activeLink == 'Results'}">
+                <a ui-sref="playerInfo.resultsByTeam" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="vm.activeLink = 'Results'">Results</a>
+            </li>
+            <li role="presentation" ng-class="{'active': vm.activeLink == 'Schedule'}">
+                <a ui-sref="playerInfo.matchesByTeam" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="vm.activeLink = 'Schedule'">Schedule</a>
+            </li>
+            <li role="presentation" ng-class="{'active': vm.activeLink == 'Umpiring'}">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Umpiring</a>
+            </li>
+            <li role="presentation" ng-class="{'active': vm.activeLink == 'Batting'}">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Batting</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <!--
+            For this ui-view, i need to nest states under like this in home controller. and need to write only <a ui-sref=".resultsForMember" on the calling page.
+            {
+            name: 'playerInfo.resultsForMember',
+            stateConfig: {
+                url: '/results',
+                templateUrl: 'app/UI/results.html'
+            }
+        }
+        -->
+        <div ui-view>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿<div ng-controller="teamsCtrl as vm">
+     <div class="row">
+         <div class="panel panel-default">
+             <div class="panel-heading">
+                 <input type="text" ng-model="vm.listFilter" placeholder="Search in whole table ....." />
+             </div>
+         </div>
+        <table class="table table-hover table-condensed"
+               st-table="tableList"
+               st-table-filtered-list="exportList"
+               st-global-search="vm.listFilter"
+               st-safe-src="vm.teamList"
+               st-persist="standardTargetList">
+            <tr>
+                <th>Team Id</th>
+                <th>Name</th>
+                <th>Valid To</th>
+                <th>Team Flag Id</th>
+                <th>Captain</th>
+            </tr>
+            <tr>
+                <td>
+                    <select st-search="'teamId'" class="input-sm form-control"
+                            st-col-filter="teamId"
+                            type="search" st-data-type="integar">
+                        <option value="" label=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select st-search="'name'" class="input-sm form-control"
+                            st-col-filter="name"
+                            type="search">
+                        <option value="" label=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select st-search="'validTo'" class="input-sm form-control"
+                            st-col-filter="validTo"
+                            type="search" st-date-format="DD/MM/YYYY">
+                        <option value="" label=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select st-search="'teamFlagId'" class="input-sm form-control"
+                            st-col-filter="teamFlagId"
+                            type="search" st-data-type="integar">
+                        <option value="" label=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select st-search="'captain'" class="input-sm form-control"
+                            st-col-filter="captain"
+                            type="search">
+                        <option value="" label=""></option>
+                    </select>
+                </td>
+            </tr>
+            <tr ng-repeat="row in tableList">
+                <td>{{row.teamId}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.validTo}}</td>
+                <td>{{row.teamFlagId}}</td>
+                <td>{{row.captain}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

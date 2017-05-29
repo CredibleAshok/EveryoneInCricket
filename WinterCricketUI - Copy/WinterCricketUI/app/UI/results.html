@@ -1,0 +1,56 @@
+﻿<div ng-controller="resultsCtrl as vm">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div style="float:left;">
+                <ui-select ng-change="vm.getMatchesBySeriesId(vm.selectedSeries.seriesId)" ng-model="vm.selectedSeries" theme="bootstrap" class="icon-not-end-form-control" title="Choose a Series">
+                    <ui-select-match placeholder="Select or search a Series...">{{$select.selected.seriesName}}</ui-select-match>
+                    <ui-select-choices group-by="'year'" repeat="series in vm.seriesList | filter: $select.search">
+                        <span ng-bind-html="series.seriesName | highlight: $select.search"></span>
+                        <small ng-bind-html="series.seriesId | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active" ng-click="vm.setModel('List')">
+                    <input type="radio" name="options" checked> List
+                </label>
+                <label class="btn btn-primary" ng-click="vm.setModel('Calender')">
+                    <input type="radio" name="options"> Calender
+                </label>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active" ng-repeat="item in vm.matcheTypesList">
+                    <button type="button" ng-class="{activeButton: $index==vm.activeIndex }" ng-click="vm.changeSelectedIndex($index, item.matchTypeId)">{{item.name}}</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="row" style="background-color:white;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <result-detail-tpl table-data="vm.completedMatchesList" display-type="2"></result-detail-tpl>
+                    </div>
+                    <!--<div ng-show="vm.completedExpanded && vm.matchView=='Calendar'" class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="calendarCompletedMatches" style="max-width: 900px; margin: 0 auto;"></div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

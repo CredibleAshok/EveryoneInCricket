@@ -1,0 +1,68 @@
+﻿.activeButton {
+    background-color: gray;
+}
+
+/*This below rule says that any thing on bigger screen
+        with li tag having dropdown class is hovered then
+        change the class property to block for any item under ul tag having dropdown-menu class
+            if you remove ul.nav class from this, this will work same as with this class
+*/
+@media (min-width: 767px) {
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
+/*for clear button*/
+
+.close-button {
+    margin-right: 6px;
+    margin-left: 0px !important;
+    margin-bottom: 34px;
+    border-radius: 0px 3px 3px 0px !important;
+    height: 33px;
+    width: 22px !important;
+    color: #333;
+    background-color: #fff;
+    border-color: #888;
+    z-index: 0 !important;
+    position: absolute !important;
+    border: 1px solid gray !important;
+}
+
+.input-group-btn button {
+    font-size: 12px !important;
+    padding: 5px 8px 6px 12px;
+}
+
+/* For odd column support in bootstrap */
+
+.oddColSupport  .col-md-2 {
+    width: 14.285714285714285714285714285714%;
+}
+
+/* from ust */
+.table th {
+	font-size:12px;
+	font-weight:normal;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-align:left;
+	padding:7px 3px;
+	color:#ffffff;
+	background-color:#3498db;
+	text-shadow:none;
+    font-family: "Tahoma", Helvetica, Arial;
+}
+.table td {
+    font-family: "Tahoma", Helvetica, Arial;
+    font-size: 13px;
+}
+.table a {
+	font-weight: 600
+}
+.table tr {
+	border-bottom:1px solid #fff;
+	background-color:#f8f8f8;
+	-moz-transition:all .2s;
+	-webkit-transition:all .2s;
+	-o-transition:all .2s;
+}

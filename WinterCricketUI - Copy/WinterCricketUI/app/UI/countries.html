@@ -1,0 +1,23 @@
+﻿<div ng-controller="countriesCtrl as vm">
+    <div style="height:inherit;">
+        <div>
+            <table class="table table-hover table-condensed">
+                <tr style="color:green">
+                    <th>
+                    </th>
+                    <th>
+                        Country Name
+                    </th>
+                    <th>
+                        Continent
+                    </th>
+                </tr>
+                <tr ng-repeat="row in countriesData">
+                    <td><img style="width:20px; height:20px;" src="{{row.Flag}}" /></td>
+                    <td>{{row.CountryName}}</td>
+                    <td>{{row.Continent}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿<div ng-controller="resultDetailCtrl as vm">
+    <div class="row" ng-show="displayType == 1">
+        <table class="table table-hover table-condensed">
+            <tr ng-repeat="row in tableData">
+                <td>{{row.matchTypeDetails.name}}</td>
+                <td>
+                    <a ui-sref="playersList({ teamId: row.homeTeamDetails.teamId})">{{row.homeTeamDetails.name}}</a>
+                </td>
+                <td>VS</td>
+                <td><a ui-sref="playersList({ teamId: row.awayTeamDetails.teamId})">{{row.awayTeamDetails.name}}</a></td>
+                <!--<td>{{row.matchTime}}</td>-->
+                <td>{{row.matchDate}}</td>
+                <!--<td>{{row.venueDetails.name}}</td>-->
+                <td>{{row.resultDetails.wonByDetails.name}} Won By {{row.resultDetails.byRuns}} {{row.resultDetails.byWickets}} {{row.resultDetails.winningModeDetails.name}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-12" ng-repeat="matchStatDetailRow in row.matchStatsDetails">
+                            {{matchStatDetailRow.teamDetails.name}} ( {{matchStatDetailRow.runsScored}} / {{matchStatDetailRow.wicketsLost}} ) - in {{matchStatDetailRow.oversReceived}} overs
+                        </div>
+                    </div>
+                    <!--<div class="row" ng-show="row.matchStatDetails.length==0">
+                        <span>Scores Awaited.</span>
+                    </div>-->
+                </td>
+                <!--<td><a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a></td>-->
+            </tr>
+        </table>
+    </div>
+    <div class="row" ng-show="displayType == 2">
+        <table class="table table-hover table-condensed">
+            <!--todo: wonby needs to be changed to wonbyId, winningMode to winningModeId, lostBy to lostById -->
+            <tr ng-repeat="row in vm.myData">
+                <td>{{row.matchTypeDetails.name}}</td>
+                <td>
+                    <a ui-sref="playersList({ teamId: row.homeTeamDetails.teamId})">{{row.homeTeamDetails.name}}</a>
+                </td>
+                <td>VS</td>
+                <td><a ui-sref="playersList({ teamId: row.awayTeamDetails.teamId})">{{row.awayTeamDetails.name}}</a></td>
+                <td>{{row.matchTime}}</td>
+                <td>{{row.matchDate}}</td>
+                <td>{{row.venueDetails.name}}</td>
+                <td>{{row.resultDetails.wonByDetails.name}} Won By {{row.resultDetails.byRuns}} {{row.resultDetails.byWickets}} {{row.resultDetails.winningModeDetails.name}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-12" ng-repeat="matchStatDetailRow in row.matchStatsDetails">
+                            {{matchStatDetailRow.teamDetails.name}} ( {{matchStatDetailRow.runsScored}} / {{matchStatDetailRow.wicketsLost}} ) - in {{matchStatDetailRow.oversReceived}} overs
+                        </div>
+                    </div>
+                    <div class="row" ng-show="row.matchStatDetails.length==0">
+                        <span>Scores Awaited.</span>
+                    </div>
+                </td>
+                <td><a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

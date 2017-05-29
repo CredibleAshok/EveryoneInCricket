@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    /*This query gives information
+    1. which team won
+    2. how many runs winning team made
+    3. how many wickets they lost
+    --------
+    To gather information about how many overs they played, a separate logic before running this query is
+    required and hence this would become a stored procedure then
+    alternate to this problem will be
+    1. add one column in match table as LostBy, this column will be used for joining individual scores for over bowled. count number of overs bowled for opposite team and show them with
+    other. for example, lets say team 1 bowled 15 overs and team 2 bowled 23 overs. Then 23 become number of played overs for team 1 and 15 for team2.
+
+    2. capture this information sepaetely not in individual scores, keep this into another table because this information is not related to any player.
+
+    */
+    select
+    m.MatchId,
+    m.VenueId,
+    m.MatchDate,
+    --m.HomeTeam,
+    hteam.Name 'Home Team' ,
+    --m.AwayTeam,
+    ateam.Name 'Away Team',
+    --m.WonBy,
+    wteam.Name 'Won By',
+    m.MatchTypeId
+    --,SUM(winStats.RunsScored) as 'Total Runs'
+    --,SUM(ind.OversBowled) as 'Total Overs'
+    --,Count(winStats.HowOut) as 'Total Wickets'
+    ,SUM(ebf.wides) 'leg buys'
+    from Match m
+    join Team hteam on hteam.TeamId = m.HomeTeam
+    join Team ateam on ateam.TeamId = m.AwayTeam
+    join Team wteam on wteam.TeamId = m.WonBy
+    join IndividualScores winStats on winStats.TeamId = m.WonBy
+    join ExtraBowlingFirst ebf on ebf.TeamId_F = m.WonBy
+    --join IndividualScores lostStats on lostStats.TeamId = m.WonBy
+    where m.MatchStateId = 2
+    group by m.WonBy, m.MatchId, m.VenueId, m.MatchDate, hteam.Name,ateam.Name,wteam.Name,m.MatchTypeId
+    -----------------------
+    select m.MatchId
+    ,m.VenueId
+    ,m.MatchDate
+    ,hteam.Name 'Home Team'
+    ,ateam.Name 'Away Team'
+    ,m.MatchTypeId
+    ,m.MatchTime
+    ,m.MatchStateId
+    ,wteam.Name 'Won Team'
+    ,lteam.Name 'Lost Team'
+    ,wm.Name 'Winning Mode'
+    ,mst.Name 'Team'
+    ,sum(ms.RunsScored + ms.ExtraScored) 'Runs Scored'
+    ,ms.OversReceived 'Overs Received'
+    ,ms.WicketsLost 'Wickets Lost'
+    from Match m
+    inner join Team hteam on hteam.TeamId = m.HomeTeam
+    inner join Team ateam on ateam.TeamId = m.AwayTeam
+    inner join Results r on r.MatchId = m.MatchId
+    inner join Team wteam on wteam.TeamId = r.WonBy
+    inner join Team lteam on lteam.TeamId = r.LostBy
+    inner join WinningMode wm on wm.WinningModeId = r.WinningMode
+    inner join MatchStats ms on ms.MatchId = m.MatchId
+    inner join Team mst  on mst.TeamId = ms.teamid
+    group by m.MatchId,m.VenueId,m.MatchDate,hteam.Name,ateam.Name ,m.MatchTypeId,m.MatchTime,m.MatchStateId,wteam.Name ,lteam.Name ,wm.Name,mst.Name
+    ,ms.OversReceived
+    ,ms.WicketsLost
+    ----------------------------
+    select r.MatchId
+    ,won.Name 'won by'
+    ,lost.Name 'lost by'
+    ,r.DecidedToBat
+    ,wm.Name 'winning mode'
+    ,sum(ms.RunsScored + ms.ExtraScored) 'Runs Scored'
+    ,ms.OversReceived 'Overs Received'
+    ,ms.WicketsLost 'Wickets Lost'
+
+    from Results r
+    join team won on won.TeamId = r.WonBy
+    join team lost on lost.TeamId = r.LostBy
+    join WinningMode wm on wm.WinningModeId = r.WinningMode
+    left join MatchStats ms on ms.MatchId = r.MatchId
+    group by r.MatchId
+    ,won.Name
+    ,lost.Name
+    ,r.DecidedToBat
+    ,wm.Name
+    ,ms.OversReceived
+    ,ms.WicketsLost
+    <p>The cast to value type 'System.Int32' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.</p>
+    <p>My table structure is like this.
+    Result 
+           Match
+                Individiual Score --- this has null value in bowling type and is a foreign key from bowling type
+                    Bowling Type
+    My problem goes away when i make the receiver also as null, means made null to int property in dto because it was null in model class
+
+
+    <p>Your title remains even if you delete the title tag, but as you change it, it is there.</p>
+    <p>value vs constant, .value and .constant both are same except It is worth pointing out that constants can be injected everywhere and values are limited to controllers, directives and services.</p>
+    <p>how to use filterfilter on nested values. like i did in filterFilter(vm.allMatches, { 'matchStateId': 1, matchTypeDetails:{matchTypeId : parseInt(matchTypeId)}}, true)</p>
+    <p>nested ui-views</p>
+    <p>matching urls like 
+        for example 'api\/getResults' will also match
+        and e2e will send data for 'api\/getResults' url instead of 'api\/getResultsByMember'
+        </p>
+    <p>boostrap support 12 column grid system. but does not support odd numbers, or take it other way round that it might support but i don't know.
+    so the problem was to equually divide a row into 7 equal columns
+    we can divide it not 12 columns of width 1 each, 6 columns of width 2 each, 4 columns of width 3 each, 3 columns of width 4 each, 2 columns of width 6 each,
+    but, what if we need 5 equal columns, 7 equal columns, 9 or eleven equal columns. Then we need to override the width  property of columns as 
+        .oddColSupport  .col-md-2 {
+        width: 14.285714285714285714285714285714%;
+        }
+    alternate is, we can have a customized bootstrap, for example instead of 12 column grid system, we can have it as 14 column grid system. divide the row
+    in equal 7 columns, but you need to have a different name for this class, otherwise normal class may not have precedence. col-md-2 is same in both
+    css files, so name the other something different.
+    </p>
+    <p>how to load a page by default. I used tabs, under tabs, used anchor tags, ng-class for showing them active and $state.go('state-name') for opening certain page.</p>
+    <p>state names are case sensitive, for example 'about' and 'About' are two different states. If you use one in {
+            name: 'hello',
+            stateConfig: {
+                url: '/hello',
+                templateUrl: 'app/UI/hello-world/hello.html'
+            }
+        }
+    and wanted to use in ui-sref like
+    <p>db time means local time. local time of time zone where database exists.</p>
+    <p>3 kinds, utc, local and unspecified(this is utc by default.)</p>
+    <p>UI always passing utc even if we do not convert into universal time.</p>
+    <a ui-sref="About">About</a>, this will give you error.
+  <p>gitignore file is used to ignore temporary files in commits.</p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿[{
+    "PersonId": 1,
+    "PersonName": "ashok",
+    "PersonType": "Player",
+    "Team_F": "Bayswater",
+    "PlayerType_F": "Bowler",
+    "PlayingHand_F": "RightHand",
+    "IsWicketKeeper": true,
+    "HasChangedTeamEver": false,
+    "IsCaptain": true
+}, {
+    "PersonId": 2,
+    "PersonName": "Dinesh",
+    "PersonType": "Player",
+    "Team_F": "Bayswater",
+    "PlayerType_F": "Batsman",
+    "PlayingHand_F": "LeftHand",
+    "IsWicketKeeper": true,
+    "HasChangedTeamEver": false,
+    "IsCaptain": true
+}, {
+    "PersonId": 3,
+    "PersonName": "Babita",
+    "PersonType": "Player",
+    "Team_F": "Bayswater",
+    "PlayerType_F": "Batsman",
+    "PlayingHand_F": "LeftHand",
+    "IsWicketKeeper": true,
+    "HasChangedTeamEver": false,
+    "IsCaptain": true
+}, {
+    "PersonId": 4,
+    "PersonName": "Sarita",
+    "PersonType": "Player",
+    "Team_F": "Bayswater",
+    "PlayerType_F": "Bowler",
+    "PlayingHand_F": "RightHand",
+    "IsWicketKeeper": true,
+    "HasChangedTeamEver": false,
+    "IsCaptain": true
+}]

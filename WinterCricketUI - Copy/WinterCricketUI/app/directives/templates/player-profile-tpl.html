@@ -1,0 +1,33 @@
+﻿<div>{{playersList.length}}</div>
+<div>Loaded</div>
+<div class="row">
+    <div class="col-md-12" style="border:1px solid red;">
+        <input type="text" ng-model="filterValue" placeholder="Search Member" />
+    </div>
+</div>
+
+<div style="background-color:white;" class="row" ng-repeat="row in playersList | filter: filterValue">
+    <div class="row">
+        <div class="col-md-1"><img src="/app/content/images/myPhoto.png" style="height:40px; width:30px;" /></div>
+        <div class="col-md-11">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">Player Id:</div>
+                    <div class="col-md-10">{{row.memberId}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Name: </div>
+                    <div class="col-md-10"><a ui-sref="playerInfo({ memberId: row.memberId, teamId: row.teamId})">{{row.name}}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{row.playingHand=='1'?'Right Handed':'Left Handed'}}&nbsp;{{row.playerType=='1'?'Batsman':'Bowler'}}</div>
+        <div class="col-md-4">{{row.isCaptain?'Captain':''}}</div>
+        <div class="col-md-4">{{row.isWicketKeeper?'WicketKeeper':''}}</div>
+    </div>
+    <div class="row">
+        <hr />
+    </div>
+</div>
