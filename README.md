@@ -3,3 +3,4 @@ I started this project as a learning for AngularJs. I kept on putting almost all
 Major Focuses are on following topics.
 1. Routes using ui-router
 2. Smart table using filters and a global search accross whole data.
+3. Use of test / fake data. So no dependency of database or web api to fetch data.
