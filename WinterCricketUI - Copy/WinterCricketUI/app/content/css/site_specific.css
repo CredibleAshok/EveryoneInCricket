@@ -1,0 +1,122 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+#Showcase { padding:10px 10px 0; width:880px; margin-left: 40px; }
+#ShowcaseWrap { padding-left:10px; }
+.ShowcaseWrap ul li { width:111px !important; }
+#Showcase { padding:10px 0 0; width:902px; margin-left: 30px; }
+.ShowcaseWrap ul { margin-left:-2px;}
+
+/* RIBBONS */
+.ribbon .wrapAround { background: transparent url("/app/content/images/ribbon-wrap.png");}
+.ribbon .tab { background: transparent url("/app/content/images/ribbon_sub.png");}
+.full-page .ribbon .tab { background: transparent url("/app/content/images/ribbon_full.png");}
+div#titlebar .ribbon .wrapAround { background: transparent url("/app/content/images/ribbon-wrap.png");}
+div#titlebar .ribbon .tab { background: transparent url("/app/content/images/ribbon_full.png");}
+.thirds .ribbon .tab { background: transparent url("/app/content/images/ribbon_third_sub.png");}
+
+/* BUTTONS */
+button.btn { background:transparent url(/app/content/images/button-sprite.png) no-repeat scroll right -92px;}
+button.btn span { background:transparent url(/app/content/images/button-sprite.png) no-repeat scroll left top;}
+
+/* FOOTER */
+#FooterBottom { background:transparent url(/app/content/images/footerBg-bottom.png) no-repeat scroll 0 0; height:28px;}
+#FooterContent { background:transparent url(/app/content/images/footerBg-repeat.png) repeat-y scroll 0 0;}
+#FooterTop { background:transparent url(/app/content/images/footerBg-top.png) no-repeat scroll 0 0;}
+#Footer .one-third, #Footer .two-thirds, #Footer .half-page { background:transparent url(/app/content/images/footerBg-verticalRule.gif) repeat-y scroll 100% 0; }
+
+/* TOP NAVIGATION */
+.sf-menu  a, .sf-menu  a:link, .sf-menu  a:visited, .sf-menu a:hover, .sf-menu  a:active { color:#FFF;}
+
+
+#MmLeft { background:transparent url(/app/content/images/mainMenu-left.png) no-repeat scroll 0 0; }
+#MmBody { background:transparent url(/app/content/images/mainMenu-repeat.png) repeat-x scroll 0 0; }
+#MmRight { background:transparent url(/app/content/images/mainMenu-right.png) no-repeat scroll 0 0; }
+.mmDivider {background:transparent url(/app/content/images/mainMenu-divider.gif) no-repeat scroll 0 0; }
+
+/* SECONDARY NAVIGATION */
+.SecondaryMenu .MmRight { background:transparent url(/app/content/images/mainMenu-right.png) no-repeat scroll 0 0; !important }
+
+.SecondaryMenu .MmBody {
+    background-image: url("/app/content/images/mainMenu-repeat.png");
+    background-repeat: repeat-x;
+}
+.SecondaryMenu .MmLeft {
+    background-image: url("/app/content/images/mainMenu-right2.png");
+    background-repeat: no-repeat; }
+    
+
+/* DROP DOWNS - TOP LEVEL */
+#MainMenu .sf-menu li li { background-color: #FDCC00; color:#0F1160; }
+#MainMenu .sf-menu li li:hover, #MainMenu .sf-menu li li.sfHover, #MainMenu .sf-menu li li a:focus, #MainMenu .sf-menu li li a:hover, #MainMenu .sf-menu li li a:active { background: none repeat scroll 0 0 #0F1160; color:#0FFF; }
+
+/* SECONDARY */
+.SecondaryMenu .sf-menu li li { background: none repeat scroll 0 0 #FDCC00; color: #0F1160 !important;}
+.SecondaryMenu li li a:link, .SecondaryMenu .sf-menu li li a:visited {
+    color: #0F1160;
+}
+.SecondaryMenu .sf-menu li li:hover, .SecondaryMenu .sf-menu li li.sfHover, .SecondaryMenu .sf-menu li li a:focus, .SecondaryMenu .sf-menu li li a:hover, .SecondaryMenu .sf-menu li li a:active {
+    background: none repeat scroll 0 0 #0F1160;
+    color: #FFFFFF;
+}
+
+
+/* THIRD */
+.SecondaryMenu .sf-menu li li li {
+    background: none repeat scroll 0 0 #FDCC00; color:#0F1160;
+}
+.SecondaryMenu .sf-menu li li li:hover, .SecondaryMenu .sf-menu li li li.sfHover, .SecondaryMenu .sf-menu li li li a:focus, .SecondaryMenu .sf-menu li li li a:hover, .SecondaryMenu .sf-menu li li li a:active {
+    background: none repeat scroll 0 0 #0F1160;
+    color: #FFFFFF;
+}
+
+/*CONTENT */
+p { font-size: 110%; }
+#TopLinks { display:none;}
+.pageMain a, .pageMain a:link, .pageMain a:visited, .pageMain a:hover, .pageMain a:active { color:#0F1160;}
+a:hover { text-decoration:underline;}
+.ribbon span a { color:#CCC;}
+#Footer a, #Footer a:link, #Footer a:visited, #Footer a:hover, #Footer a:active { color:#FFF; }
+.ribbon h1 span { color:#FDCC00;}
+#MmBody a:hover { color:#FDCC00; }
+
+/* RIBBON BREAD CRUMB */
+.ribbon span.blogPostInfo a { color:#FFF;}
+
+/* SIDE TITLES */
+#widget .widget .widget-top h3 {color:#0F1160;}
+
+#MainMenu .sf-menu li li:hover, 
+#MainMenu .sf-menu li li.sfHover, 
+#MainMenu .sf-menu li li a:focus, 
+#MainMenu .sf-menu li li a:hover, 
+#MainMenu .sf-menu li li a:active
+#MainMenu .sf-menu li li li:hover, 
+#MainMenu .sf-menu li li li.sfHover, 
+#MainMenu .sf-menu li li li a:focus, 
+#MainMenu .sf-menu li li li a:hover, 
+#MainMenu .sf-menu li li li a:active
+{ 
+	background:#0F1160 none repeat scroll 0 0; color:#FFF;
+}
+/* CONTENT BACKGROUND */
+ #Header, #gallery, .pageMain, .ShowcaseWrap,.ShowcaseWrapNoScroll, #sliderWrapper { 
+ background: transparent url("/app/content/images/pageBg-repeat.png") repeat-y 0 0;
+}
+.pageTop {
+ height: 10px;
+ overflow: hidden;
+ background: transparent url("/app/content/images/pageBg-top.png") no-repeat 0 0;
+}
+.SecondaryMenu {
+ background-image: url(/app/content/images/pageBg-repeat.png);
+}
+#SlideRepeat {
+background: transparent url("/app/content/images/pageBg-slideRepeat.png") repeat-y 0 0;
+}
+#SlideBottom {
+ background: transparent url("/app/content/images/pageBg-slideBottom.png") no-repeat 0 0; 
+}
+#SlideTop {
+ background: transparent url("/app/content/images/pageBg-slideTop.png") no-repeat 0 0;
+}  
