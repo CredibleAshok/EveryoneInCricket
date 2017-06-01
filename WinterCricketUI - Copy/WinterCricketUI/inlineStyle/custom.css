@@ -7,11 +7,21 @@
         change the class property to block for any item under ul tag having dropdown-menu class
             if you remove ul.nav class from this, this will work same as with this class
 */
+/* Rule for second nested child of a dropdown menu on hover */
 @media (min-width: 767px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
     }
 }
+
+/* Rule for third nested child of a dropdown menu on hover */
+.dropdown-submenu:hover .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    display: block;
+}
+
 /*for clear button*/
 
 .close-button {
