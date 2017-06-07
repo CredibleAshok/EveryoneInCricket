@@ -3,11 +3,11 @@
 myApp.run(['$state', 'securitySservice', '$q', function ($state, securitySservice, $q) {
 
     // Get the current user when the application starts
-    // (in case they are still logged in from a previous session)
-    // Note! angular does not wait till this request completes, so it is repeated in the authorization code.
-    var defer = $q.defer();
-    securitySservice.getloggedInUser(defer);
-
-    return defer.promise;
-
+    // use then notation when supplying username and password. if not use direct call to getcurrentUser, it will give guest object.
+    //securitySservice.getloggedInUser("asd","asd").then(function (resp) {
+    //    var currentUser1 = securitySservice.getcurrentUser();
+    //    console.log("securitySservice.currentUser:- " + securitySservice.getcurrentUser().Name);
+    //});
+    var currentUser1 = securitySservice.getcurrentUser();
+    console.log("securitySservice.currentUser:- " + securitySservice.getcurrentUser().Name);
 }])
