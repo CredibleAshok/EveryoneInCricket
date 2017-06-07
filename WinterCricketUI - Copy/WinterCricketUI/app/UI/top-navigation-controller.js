@@ -1,8 +1,9 @@
 ﻿//This controller controls the dynamic display of menu items or top level navegation.
 (function () {
-    myApp.controller('topNavigationCtrl', function ($scope, routes, $filter, securitySservice) {
+    myApp.controller('topNavigationCtrl', function ($scope, routes, $filter, securitySservice, $rootScope) {
         var vm = this;
         vm.routes = routes;
-        vm.currentUser = securitySservice.getcurrentUser();
+        $rootScope.currentUser = securitySservice.getcurrentUser();
+        //vm.currentUser = $rootScope.currentUser;
     })
 })();

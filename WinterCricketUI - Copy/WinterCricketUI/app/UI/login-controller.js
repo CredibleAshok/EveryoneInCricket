@@ -1,11 +1,14 @@
 ﻿(function () {
-    myApp.controller('loginCtrl', function ($scope, $http, config, $stateParams, securitySservice) {
+    myApp.controller('loginCtrl', function ($scope, $http, config, $stateParams, securitySservice, $rootScope, $state) {
         var vm = this;
+        vm.userName = "ashok";
+        vm.password = "ashok";
         console.log("login controller loaded.");
         vm.getUserDetails = function (userName, password) {
             securitySservice.getloggedInUser(userName, password).then(function (resp) {
-                var currentUser1 = securitySservice.getcurrentUser();
-                console.log("securitySservice.currentUser:- " + securitySservice.getcurrentUser().Name);
+                $rootScope.currentUser = securitySservice.getcurrentUser();
+                //console.log("securitySservice.currentUser:- " + $rootScope.currentUser.Name);
+                $state.go($rootScope.previousState);
             });
         };
     });
