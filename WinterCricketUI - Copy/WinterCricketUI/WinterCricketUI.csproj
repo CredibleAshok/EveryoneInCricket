@@ -108,6 +108,8 @@
     <Content Include="inlineStyle\select-dropdown\select.min.css" />
     <Content Include="inlineStyle\select-dropdown\select.min.js" />
     <Content Include="inlineStyle\ust.css" />
+    <Content Include="app\UI\login-controller.js" />
+    <Content Include="app\UI\login.html" />
     <Content Include="problems-faced\database-script.html" />
     <Content Include="problems-faced\problems-faced.html" />
     <Content Include="Scripts\angular-route.min.js.map" />
