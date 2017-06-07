@@ -1,6 +1,6 @@
 ﻿(function () {
     myApp.controller('matchesCtrl', function ($timeout, $scope, $http, config, filterFilter, $stateParams, globalVariables, seriesSservice, matchTypeSservice,
-        matchSservice) {
+        matchSservice,$rootScope) {
         var vm = this;
         vm.matchView = 'List';
         vm.activeIndex = 0;
@@ -15,6 +15,18 @@
             });
         }
 
+        vm.getButtonVisiblity = function () {
+            vm.addMatches = false;
+            if ($rootScope.currentUser != undefined) {
+                angular.forEach($rootScope.currentUser.Roles, function (val) {
+                    angular.forEach(val.Features, function (valFeature) {
+                        if (valFeature.Name == "Add Match") {
+                            vm.addMatches = true;
+                        }
+                    });
+                });
+            }
+        };
         vm.getMatchesOnCalender = function (completedMatchesList,upComingMatchesList) {
             $('#calendarCompletedMatches').fullCalendar({
                 header: {
@@ -135,6 +147,6 @@
                 console.log('Countries  failed.');
             });
         }
-
+        vm.getButtonVisiblity();
     });
 })();

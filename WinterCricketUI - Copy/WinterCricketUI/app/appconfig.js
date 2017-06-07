@@ -207,6 +207,17 @@
                 //#endregion childRoute
             }
         }
+    }, {
+        name: 'login',
+        stateConfig: {
+            url: '/login',
+            templateUrl: 'app/UI/login.html',
+            data: {
+                title: 'Login',
+                topLevelMenu: true,
+                hasChild: false
+            }
+        }
     }];
 
     myApp.constant('routes', routes);

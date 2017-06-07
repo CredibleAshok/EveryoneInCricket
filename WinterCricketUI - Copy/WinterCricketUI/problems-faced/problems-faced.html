@@ -93,48 +93,57 @@
     ,ms.OversReceived
     ,ms.WicketsLost
     <p>The cast to value type 'System.Int32' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.</p>
-    <p>My table structure is like this.
-    Result 
-           Match
-                Individiual Score --- this has null value in bowling type and is a foreign key from bowling type
-                    Bowling Type
-    My problem goes away when i make the receiver also as null, means made null to int property in dto because it was null in model class
+    <p>
+        My table structure is like this.
+        Result
+        Match
+        Individiual Score --- this has null value in bowling type and is a foreign key from bowling type
+        Bowling Type
+        My problem goes away when i make the receiver also as null, means made null to int property in dto because it was null in model class
 
 
     <p>Your title remains even if you delete the title tag, but as you change it, it is there.</p>
     <p>value vs constant, .value and .constant both are same except It is worth pointing out that constants can be injected everywhere and values are limited to controllers, directives and services.</p>
     <p>how to use filterfilter on nested values. like i did in filterFilter(vm.allMatches, { 'matchStateId': 1, matchTypeDetails:{matchTypeId : parseInt(matchTypeId)}}, true)</p>
     <p>nested ui-views</p>
-    <p>matching urls like 
+    <p>
+        matching urls like
         for example 'api\/getResults' will also match
         and e2e will send data for 'api\/getResults' url instead of 'api\/getResultsByMember'
-        </p>
-    <p>boostrap support 12 column grid system. but does not support odd numbers, or take it other way round that it might support but i don't know.
-    so the problem was to equually divide a row into 7 equal columns
-    we can divide it not 12 columns of width 1 each, 6 columns of width 2 each, 4 columns of width 3 each, 3 columns of width 4 each, 2 columns of width 6 each,
-    but, what if we need 5 equal columns, 7 equal columns, 9 or eleven equal columns. Then we need to override the width  property of columns as 
+    </p>
+    <p>
+        boostrap support 12 column grid system. but does not support odd numbers, or take it other way round that it might support but i don't know.
+        so the problem was to equually divide a row into 7 equal columns
+        we can divide it not 12 columns of width 1 each, 6 columns of width 2 each, 4 columns of width 3 each, 3 columns of width 4 each, 2 columns of width 6 each,
+        but, what if we need 5 equal columns, 7 equal columns, 9 or eleven equal columns. Then we need to override the width  property of columns as
         .oddColSupport  .col-md-2 {
         width: 14.285714285714285714285714285714%;
         }
-    alternate is, we can have a customized bootstrap, for example instead of 12 column grid system, we can have it as 14 column grid system. divide the row
-    in equal 7 columns, but you need to have a different name for this class, otherwise normal class may not have precedence. col-md-2 is same in both
-    css files, so name the other something different.
+        alternate is, we can have a customized bootstrap, for example instead of 12 column grid system, we can have it as 14 column grid system. divide the row
+        in equal 7 columns, but you need to have a different name for this class, otherwise normal class may not have precedence. col-md-2 is same in both
+        css files, so name the other something different.
     </p>
     <p>how to load a page by default. I used tabs, under tabs, used anchor tags, ng-class for showing them active and $state.go('state-name') for opening certain page.</p>
-    <p>state names are case sensitive, for example 'about' and 'About' are two different states. If you use one in {
-            name: 'hello',
-            stateConfig: {
-                url: '/hello',
-                templateUrl: 'app/UI/hello-world/hello.html'
-            }
+    <p>
+        state names are case sensitive, for example 'about' and 'About' are two different states. If you use one in {
+        name: 'hello',
+        stateConfig: {
+        url: '/hello',
+        templateUrl: 'app/UI/hello-world/hello.html'
         }
-    and wanted to use in ui-sref like
+        }
+        and wanted to use in ui-sref like
     <p>db time means local time. local time of time zone where database exists.</p>
     <p>3 kinds, utc, local and unspecified(this is utc by default.)</p>
     <p>UI always passing utc even if we do not convert into universal time.</p>
     <a ui-sref="About">About</a>, this will give you error.
-  <p>gitignore file is used to ignore temporary files in commits.</p>
+    <p>gitignore file is used to ignore temporary files in commits.</p>
     <p>The process cannot access the file because it is being used by another process: This is a skype holding port 80</p>
     <p>iis not finding home.html page. because, ng-include='/app/UI/home.html' but instead it should be like this 'app/UI/home.html' and this was working on my local computer.</p>
+    <p>for active directory kerbors are used. This sends identity in header to service and service just picks identity.name. from here service gets whole user data.</p>
+    <p>
+        services are singleton. for example if created a service security, in this security service i have one method for getting the user details and other method for storing these details.
+        now if i use this service on any controller and wanted to access the data returned by the service in first instance. i can use, i will still have the data there. That is why services are singleton
+    </p>
 </body>
 </html>
