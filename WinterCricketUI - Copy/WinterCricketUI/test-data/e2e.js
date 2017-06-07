@@ -24,6 +24,15 @@ myAppTest.run(['$httpBackend', 'filterFilter', function ($httpBackend, filterFil
         return [200, filteredData, {}];
     });
 
+    // get user.
+    $httpBackend.whenGET(new RegExp('api\/getLoggedInUser')).respond(function (method, url) {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'test-data/userData.js', false);
+        request.send(null);
+        var data = JSON.parse(request.response);
+        return [200, data, {}];
+    });
+
     //http://localhost:65481/api/Clubs
     $httpBackend.whenGET(new RegExp('api\/Clubs')).respond(function (method, url) {
         var request = new XMLHttpRequest();

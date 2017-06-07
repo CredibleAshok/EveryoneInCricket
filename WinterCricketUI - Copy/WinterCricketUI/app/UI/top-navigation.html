@@ -9,12 +9,12 @@
                     </a>
                     <ul ng-if="route.stateConfig.data.childRoute != undefined" ng-class="{'dropdown-menu multi-level': route.stateConfig.data.childRoute != undefined}">
                         <li ng-repeat="childRoute in route.stateConfig.data.childRoute" ng-class="{'dropdown-submenu': childRoute.stateConfig.data.childRoute != undefined}">
-                            <a ui-sref="childRoute.name">
+                            <a ui-sref="{{childRoute.name}}">
                                 {{childRoute.stateConfig.data.title}}
                                 <span class="caret" ng-if="childRoute.stateConfig.data.childRoute != undefined"></span>
                                 <ul ng-if="childRoute.stateConfig.data.childRoute != undefined" ng-class="{'dropdown-menu': childRoute.stateConfig.data.childRoute != undefined}">
                                     <li ng-repeat="grandChildRoute in childRoute.stateConfig.data.childRoute">
-                                        <a ui-sref="grandChildRoute.name">{{grandChildRoute.name}}</a>
+                                        <a ui-sref="{{grandChildRoute.name}}">{{grandChildRoute.name}}</a>
                                     </li>
                                 </ul>
                             </a>

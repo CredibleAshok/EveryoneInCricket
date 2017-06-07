@@ -74,6 +74,7 @@
     <Content Include="app\services\players-service.js" />
     <Content Include="app\services\result-service.js" />
     <Content Include="app\services\score-card-service.js" />
+    <Content Include="app\services\security-service.js" />
     <Content Include="app\services\series-service.js" />
     <Content Include="app\services\teams-service.js" />
     <Content Include="app\services\venues-service.js" />
@@ -158,6 +159,7 @@
     <Content Include="test-data\seriesList.js" />
     <Content Include="test-data\teamList.js" />
     <Content Include="test-data\testdata.js" />
+    <Content Include="test-data\userData.js" />
     <Content Include="test-data\venueList.js" />
     <Content Include="test-data\winningModeList.js" />
     <Content Include="Web.config" />

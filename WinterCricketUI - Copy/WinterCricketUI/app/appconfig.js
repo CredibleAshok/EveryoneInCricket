@@ -213,7 +213,19 @@
 
     myApp.config(function ($stateProvider, $urlRouterProvider, routes) {
         routes.forEach(function (r) {
-            $stateProvider.state(r.name, r.stateConfig);
+            $stateProvider.state(r.name, r.stateConfig); // register all routes are top level
+            if (r.stateConfig.data.childRoute != undefined && r.stateConfig.data.childRoute.length > 0) {
+                var child = r.stateConfig.data.childRoute;
+                angular.forEach(child, function (c,key) {
+                    $stateProvider.state(c.name, c.stateConfig); // register child routes
+                    if (c.stateConfig.data.childRoute != undefined && c.stateConfig.data.childRoute.length > 0) {
+                        var grandChild = c.stateConfig.data.childRoute;
+                        angular.forEach(grandChild, function (gChild) {
+                            $stateProvider.state(gChild.name, gChild.stateConfig); // register grand child routes
+                        });
+                    }
+                });
+            }
         })
     });
 
