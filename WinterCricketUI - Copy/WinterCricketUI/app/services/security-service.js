@@ -16,9 +16,6 @@
                 "RoleId": 1,
                 "Name": "Player",
                 "Features": [{
-                    "FeatureId": 1,
-                    "Name": "View Match"
-                }, {
                     "FeatureId": 4,
                     "Name": "View Result"
                 }, {
