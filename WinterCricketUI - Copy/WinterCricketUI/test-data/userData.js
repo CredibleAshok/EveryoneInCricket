@@ -25,13 +25,28 @@
             "Name": "Add Match"
         }, {
             "FeatureId": 4,
-            "Name": "View Result"
+            "Name": "Add Result"
         }, {
             "FeatureId": 7,
-            "Name": "View Venue"
+            "Name": "Add Team"
         }, {
             "FeatureId": 10,
-            "Name": "View Team"
+            "Name": "Modify Team"
+        }, {
+            "FeatureId": 11,
+            "Name": "Modify Score Card"
+        }, {
+            "FeatureId": 12,
+            "Name": "Add Score Card"
+        }, {
+            "FeatureId": 13,
+            "Name": "Modify Venue"
+        }, {
+            "FeatureId": 14,
+            "Name": "Add Venue"
+        }, {
+            "FeatureId": 14,
+            "Name": "Modify Player Profile"
         }]
     }]
 }]
