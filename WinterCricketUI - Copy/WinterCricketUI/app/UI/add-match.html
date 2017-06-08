@@ -1,0 +1,58 @@
+﻿<div class="row" ng-controller="addMatchCtrl as vm">
+    <div class="row">
+        <div class="col-xs-2">Series:</div>
+        <div class="col-xs-2">
+            <div series-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.series"></div>
+        </div>
+        <div class="col-xs-2">Home Team</div>
+        <div class="col-xs-2">
+            <div team-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.homeTeam"></div>
+        </div>
+        <div class="col-xs-2">Away Team</div>
+        <div class="col-xs-2">
+            <div team-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.awayTeam"></div>
+            <span ng-show="vm.newMatch.homeTeam.name == vm.newMatch.awayTeam.name" style="color:red;">Home Team and Away team can not be same.</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">Date:</div>
+        <div class="col-xs-2">
+            date calender to implement
+        </div>
+        <div class="col-xs-2">Time</div>
+        <div class="col-xs-2">
+            Time to implemnt
+        </div>
+        <div class="col-xs-2">Match Type</div>
+        <div class="col-xs-2">
+            <div match-type-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.matchType"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">Venue:</div>
+        <div class="col-xs-2">
+            <div venue-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.venue"></div>
+        </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button ng-click="vm.saveMatch()">Save</button>
+        </div>
+    </div>
+</div>

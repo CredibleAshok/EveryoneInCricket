@@ -33,6 +33,7 @@
                 <li role="presentation" class="active" ng-repeat="item in vm.matcheTypesList">
                     <button type="button" ng-class="{activeButton: $index==vm.activeIndex }" ng-click="vm.changeSelectedIndex($index, item.matchTypeId)">{{item.name}}</button>
                 </li>
+                <li style="float:right;"><a ui-sref="addMatch" ng-click="vm.addNewMatch()" show-if-feature="Add Match">Add New Match</a></li>
             </ul>
         </div>
     </div>
@@ -88,137 +89,6 @@
             </div>
         </div>
     </div>
-    <div>
-        <div>
-            <button ng-click="vm.addNewMatch()" ng-show="vm.addMatches">Add Matches</button>
-        </div>
-        <div ng-show="globalVariables.showhideContent">
-            <p>Add New Matches:</p>
-            <button ng-click="vm.addNewMatch()">Add New match</button>
-            <div ng-show="vm.showAddNewMatch">
-                <table>
-                    <tr>
-                        <td>VenueId:</td>
-                        <td>
-                            <select id="drpVenueId" ng-model="vm.venueId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <!--Match Date-->
-                    <tr>
-                        <td>Home Team:</td>
-                        <td>
-                            <select id="drpHomeTeamId" ng-model="vm.homeTeamId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Away Team:</td>
-                        <td>
-                            <select id="drpAwayTeamId" ng-model="vm.awayTeamId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>WonBy:</td>
-                        <td>
-                            <select id="drpWonById" ng-model="vm.wonById">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>TossWonBy:</td>
-                        <td>
-                            <select id="drpTossWonById" ng-model="vm.tossWonById">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Decided To Bat:</td>
-                        <td>
-                            <select id="drpDecidedToBatId" ng-model="vm.decidedToBatId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Winning Mode Id:</td>
-                        <td>
-                            <select id="drpWinningModeId" ng-model="vm.winningModeId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Match Type Id:</td>
-                        <td>
-                            <select id="drpMatchTypeId" ng-model="vm.matchTypeId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>MatchTime:</td>
-                        <td>
-                            <input type="text" ng-model="vm.matchTime" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Series Id:</td>
-                        <td>
-                            <select id="drpSeriesId" ng-model="vm.seriesId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Match State Id:</td>
-                        <td>
-                            <select id="drpMatchStateId" ng-model="vm.matchStateId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <button ng-click="vm.saveMatch()">Save</button>
-            </div>
-        </div>
-
-    </div>
+    
+    
 </div>

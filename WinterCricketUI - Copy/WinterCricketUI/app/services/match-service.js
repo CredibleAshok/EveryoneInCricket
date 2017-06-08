@@ -15,7 +15,9 @@
             getMatchesBySeriesId: function (seriesId) { return getMatchesBySeriesId(seriesId) },
             getCompletedMatchesBySeriesId: function (seriesId, matchStateId) { return getCompletedMatchesBySeriesId(seriesId, matchStateId) },
             getResultsByMemberBySeriesId: function (memberId, teamId, seriesId, matchStateId) { return getResultsByMemberBySeriesId(memberId, teamId, seriesId, matchStateId) },
-            getMemberMatchesBySeriesId: function (teamId, seriesId) { return getMemberMatchesBySeriesId(teamId, seriesId) }
+            getMemberMatchesBySeriesId: function (teamId, seriesId) { return getMemberMatchesBySeriesId(teamId, seriesId) },
+            // post methods
+            saveNewMatch: function (newMatch) { return saveNewMatch(newMatch) }
         };
 
         return service;

@@ -218,7 +218,66 @@
                 hasChild: false
             }
         }
-    }];
+    },
+    //#region post request routes
+    {
+        name: 'addMatch',
+        stateConfig: {
+            url: '/add-match',
+            templateUrl: 'app/UI/add-match.html',
+            data: {
+                title: 'New Match',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addVenue',
+        stateConfig: {
+            url: '/add-venue',
+            templateUrl: 'app/UI/add-venue.html',
+            data: {
+                title: 'New Venue',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addResult',
+        stateConfig: {
+            url: '/add-result/:matchId',
+            templateUrl: 'app/UI/add-result.html',
+            data: {
+                title: 'New Result',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addScoreCard',
+        stateConfig: {
+            url: '/add-scoreCard/:matchId',
+            templateUrl: 'app/UI/add-score-card.html',
+            data: {
+                title: 'New Score Card',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addTeam',
+        stateConfig: {
+            url: '/add-team',
+            templateUrl: 'app/UI/add-team.html',
+            data: {
+                title: 'New Team',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }
+    //#endregion post request routes
+    ];
 
     myApp.constant('routes', routes);
 

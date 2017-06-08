@@ -1,13 +1,14 @@
 ﻿(function () {
     myApp.controller('matchesCtrl', function ($timeout, $scope, $http, config, filterFilter, $stateParams, globalVariables, seriesSservice, matchTypeSservice,
-        matchSservice,$rootScope) {
+        matchSservice, securitySservice) {
         var vm = this;
         vm.matchView = 'List';
         vm.activeIndex = 0;
+        vm.addMatches = false;
 
         vm.upComingExpanded = true;
         vm.completedExpanded = true;
-        
+
         // get series list from series service
         vm.getSeriesList = function () {
             seriesSservice.getSeriesList().then(function (resp) {
@@ -16,18 +17,10 @@
         }
 
         vm.getButtonVisiblity = function () {
-            vm.addMatches = false;
-            if ($rootScope.currentUser != undefined) {
-                angular.forEach($rootScope.currentUser.Roles, function (val) {
-                    angular.forEach(val.Features, function (valFeature) {
-                        if (valFeature.Name == "Add Match") {
-                            vm.addMatches = true;
-                        }
-                    });
-                });
-            }
+            //vm.addMatches = securitySservice.checkFeatureAvailablity("Add Match");
         };
-        vm.getMatchesOnCalender = function (completedMatchesList,upComingMatchesList) {
+
+        vm.getMatchesOnCalender = function (completedMatchesList, upComingMatchesList) {
             $('#calendarCompletedMatches').fullCalendar({
                 header: {
                     left: 'prev,next today',
@@ -63,13 +56,13 @@
             });
         };
 
-        vm.changeSelectedIndex = function(index , matchType){
+        vm.changeSelectedIndex = function (index, matchType) {
             vm.activeIndex = index;
             vm.matchType = matchType;
         }
 
         vm.getMatchByType = function (matchTypeId) {
-            vm.upComingmatchesList = filterFilter(vm.allMatches, { 'matchStateId': 1, matchTypeDetails:{matchTypeId : parseInt(matchTypeId)}}, true); // hardcoded for now.
+            vm.upComingmatchesList = filterFilter(vm.allMatches, { 'matchStateId': 1, matchTypeDetails: { matchTypeId: parseInt(matchTypeId) } }, true); // hardcoded for now.
             vm.completedMatchesList = filterFilter(vm.allMatches, { 'matchStateId': 2, matchTypeDetails: { matchTypeId: parseInt(matchTypeId) } }, true); // hardcoded for now.
             //var upComingMatchesListForCalender = createMatchListForCalender(vm.upComingmatchesList);
             //var completedMatchesListForCalender = createMatchListForCalender(vm.completedMatchesList);
@@ -101,15 +94,15 @@
         function createMatchListForCalender(sourceData) {
             var targetdata = [];
             angular.forEach(sourceData, function (value, key) {
-                    var item = {};
-                    item.title = value.HomeTeamName + ' VS ' + value.AwayTeamName + ' At ' + value.VenueName;
-                    item.start = value.MatchDate;
-                    item.end = value.MatchDate;
-                    targetdata.push(item);
+                var item = {};
+                item.title = value.HomeTeamName + ' VS ' + value.AwayTeamName + ' At ' + value.VenueName;
+                item.start = value.MatchDate;
+                item.end = value.MatchDate;
+                targetdata.push(item);
             });
             return targetdata;
         }
-        
+
 
         // This should be a part of service
         vm.getMatchTypes = function () {
@@ -117,7 +110,7 @@
                 vm.matcheTypesList = resp;
             });
         };
-// flow of onload functions        
+        // flow of onload functions        
         vm.getSeriesList();
         vm.getMatchTypes();
 
