@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,12 +66,14 @@
     <Content Include="app\directives\score-card-directive.js" />
     <Content Include="app\directives\show-hide-feature-wise-directive.js" />
     <Content Include="app\directives\templates\filter-dropdown-tpl.html" />
+    <Content Include="app\directives\templates\match-type-tpl.html" />
     <Content Include="app\directives\templates\team-dropdown-tpl.html" />
     <Content Include="app\directives\templates\match-detail-tpl.html" />
     <Content Include="app\directives\templates\player-profile-tpl.html" />
     <Content Include="app\directives\templates\result-detail-tpl.html" />
     <Content Include="app\directives\templates\score-card-tpl.html" />
     <Content Include="app\directives\templates\series-dropdown-tpl.html" />
+    <Content Include="app\directives\templates\venue-dropdown-tpl.html" />
     <Content Include="app\services\match-service.js" />
     <Content Include="app\services\match-stats-service.js" />
     <Content Include="app\services\matchType-service.js" />
