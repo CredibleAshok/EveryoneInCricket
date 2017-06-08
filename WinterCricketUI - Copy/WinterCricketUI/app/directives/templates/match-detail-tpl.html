@@ -10,6 +10,7 @@
             <td>{{row.matchTime}}</td>
             <td>{{row.matchDate}}</td>
             <td>{{row.venueDetails.name}}</td>
+            <td><a show-if-feature="Modify Match" ui-sref="modifyMatch({matchId: row.matchId})">Modify Match</a></td>
         </tr>
     </table>
 </div>
@@ -25,7 +26,10 @@
             <td>{{row.matchTime}}</td>
             <td>{{row.matchDate}}</td>
             <td>{{row.venueDetails.name}}</td>
-            <td><a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a></td>
+            <td>
+                <a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a>
+                <a show-if-feature="Modify Match" ui-sref="modifyMatch({matchId: row.matchId})">Modify Match</a>
+            </td>
         </tr>
     </table>
 </div>

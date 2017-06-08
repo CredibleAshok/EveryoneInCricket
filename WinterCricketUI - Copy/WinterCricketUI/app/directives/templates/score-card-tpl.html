@@ -17,4 +17,7 @@
         <td colspan="4">Total Score: ({{matchStats.runsScored}} / {{matchStats.wicketsLost}}) in {{matchStats.oversReceived}} overs</td>
         <td>Extras: {{matchStats.extraScored}}</td>
     </tr>
+    <tr>
+        <td><button ng-click="vm.modifyScoreCard()" show-if-feature="Modify Score Card">Modify Score Card</button></td>
+    </tr>
 </table>

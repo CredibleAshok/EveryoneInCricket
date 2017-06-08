@@ -1,0 +1,20 @@
+﻿<div>
+    <ui-select name="seriesDropdown"
+               ng-model="$parent.model"
+               theme="bootstrap"
+               reset-search-input="true"
+               class="icon-not-end-form-control"
+               ng-required="$parent.isrequired"
+               focus-on="seriesDropdown"
+               ng-disabled="$parent.isDisabled">
+        <ui-select-match placeholder="search..." title="series...">
+            {{$select.selected.seriesName}}
+        </ui-select-match>
+        <ui-select-choices repeat="series in seriesList | filter: $select.search"
+                           refresh="refreshList($select.search)"
+                           refresh-delay="200">
+            <span ng-bind-html="series.seriesName | highlight: $select.search"></span>
+            <small ng-bind-html="series.seriesId | highlight: $select.search"></small>
+        </ui-select-choices>
+    </ui-select>
+</div>
