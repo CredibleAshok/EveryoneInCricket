@@ -17,6 +17,7 @@
                 <th>Valid To</th>
                 <th>Team Flag Id</th>
                 <th>Captain</th>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>
@@ -54,6 +55,9 @@
                         <option value="" label=""></option>
                     </select>
                 </td>
+                <td>
+                    &nbsp;
+                </td>
             </tr>
             <tr ng-repeat="row in tableList">
                 <td>{{row.teamId}}</td>
@@ -61,7 +65,13 @@
                 <td>{{row.validTo}}</td>
                 <td>{{row.teamFlagId}}</td>
                 <td>{{row.captain}}</td>
+                <td><a show-if-feature="Modify Team" ui-sref="modifyTeam({teamId: row.teamId})">Modify Team</a></td>
             </tr>
         </table>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a ui-sref="addTeam" show-if-feature="Add Team">Add New Team</a>
+        </div>
     </div>
 </div>

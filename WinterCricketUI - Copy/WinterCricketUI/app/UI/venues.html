@@ -4,6 +4,11 @@
             <input type="text" ng-model="vm.listFilter" placeholder="Search in whole table ....." />
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a ui-sref="addVenue" show-if-feature="Add Venue">Add Venue</a>
+        </div>
+    </div>
     <table class="table"
            st-table="tableList"
            st-table-filtered-list="exportList"
@@ -38,7 +43,6 @@
                         type="search" st-data-type="integar">
                     <option value="" label=""></option>
                 </select>-->
-
             </td>
             <td>
                 <!--<select st-search="'name'" class="input-sm form-control"
@@ -84,6 +88,7 @@
             <td>{{row.stateId}}</td>
             <td>{{row.suburb}}</td>
             <td>{{row.postCode}}</td>
+            <td><a show-if-feature="Modify Venue" ui-sref="modifyVenue({venueId: row.venueId})">Modify Venue</a></td>
         </tr>
     </table>
 </div>
