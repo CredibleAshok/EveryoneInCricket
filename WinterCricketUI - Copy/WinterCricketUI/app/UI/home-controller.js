@@ -24,7 +24,8 @@
         })
 
         $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
-            //console.log("state change." + to.name);
+            $rootScope.currentState = to;
+            $rootScope.previousState = from;
             var paths = to.name.split('.');
             vm.breadcrumbs = [];
             vm.finalBreadCrumbObjectArray = [];
