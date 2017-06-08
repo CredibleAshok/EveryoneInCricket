@@ -1,144 +1,58 @@
 ﻿<div class="row" ng-controller="addMatchCtrl as vm">
-    <div class="col-xs-2">Series:</div>
-    <div class="col-xs-2">
-        <div series-dropdown
-             class="input-group-btn"
-             ng-model="vm.selectedSeries"></div>
+    <div class="row">
+        <div class="col-xs-2">Series:</div>
+        <div class="col-xs-2">
+            <div series-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.series"></div>
+        </div>
+        <div class="col-xs-2">Home Team</div>
+        <div class="col-xs-2">
+            <div team-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.homeTeam"></div>
+        </div>
+        <div class="col-xs-2">Away Team</div>
+        <div class="col-xs-2">
+            <div team-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.awayTeam"></div>
+            <span ng-show="vm.newMatch.homeTeam.name == vm.newMatch.awayTeam.name" style="color:red;">Home Team and Away team can not be same.</span>
+        </div>
     </div>
-    <div class="col-xs-2">Home Team</div>
-    <div class="col-xs-2">
-        <div team-dropdown
-             class="input-group-btn"
-             ng-model="vm.selectedHomeTeam"></div>
+    <div class="row">
+        <div class="col-xs-2">Date:</div>
+        <div class="col-xs-2">
+            date calender to implement
+        </div>
+        <div class="col-xs-2">Time</div>
+        <div class="col-xs-2">
+            Time to implemnt
+        </div>
+        <div class="col-xs-2">Match Type</div>
+        <div class="col-xs-2">
+            <div match-type-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.matchType"></div>
+        </div>
     </div>
-    <div class="col-xs-2">Away Team</div>
-    <div class="col-xs-2">
-        <div team-dropdown
-             class="input-group-btn"
-             ng-model="vm.selectedAwayTeam"></div>
+    <div class="row">
+        <div class="col-xs-2">Venue:</div>
+        <div class="col-xs-2">
+            <div venue-dropdown
+                 class="input-group-btn"
+                 ng-model="vm.newMatch.venue"></div>
+        </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+        </div>
     </div>
-</div>
-<div>
-    <div>
-        <table>
-            <!--<tr>
-                <td>VenueId:</td>
-                <td>
-                    <select id="drpVenueId" ng-model="vm.venueId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>-->
-            <!--Match Date-->
-            <!--<tr>
-                <td>Home Team:</td>
-                <td>
-                    <select id="drpHomeTeamId" ng-model="vm.homeTeamId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Away Team:</td>
-                <td>
-                    <select id="drpAwayTeamId" ng-model="vm.awayTeamId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>WonBy:</td>
-                <td>
-                    <select id="drpWonById" ng-model="vm.wonById">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>TossWonBy:</td>
-                <td>
-                    <select id="drpTossWonById" ng-model="vm.tossWonById">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Decided To Bat:</td>
-                <td>
-                    <select id="drpDecidedToBatId" ng-model="vm.decidedToBatId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Winning Mode Id:</td>
-                <td>
-                    <select id="drpWinningModeId" ng-model="vm.winningModeId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Match Type Id:</td>
-                <td>
-                    <select id="drpMatchTypeId" ng-model="vm.matchTypeId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>-->
-            <!--<tr>
-                <td>MatchTime:</td>
-                <td>
-                    <input type="text" ng-model="vm.matchTime" />
-                </td>
-            </tr>
-            <tr>
-                <td>Series Id:</td>
-                <td>
-                    <select id="drpSeriesId" ng-model="vm.seriesId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Match State Id:</td>
-                <td>
-                    <select id="drpMatchStateId" ng-model="vm.matchStateId">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>-->
-        </table>
-        <!--<button ng-click="vm.saveMatch()">Save</button>-->
+    <div class="row">
+        <div class="col-xs-12">
+            <button ng-click="vm.saveMatch()">Save</button>
+        </div>
     </div>
 </div>
