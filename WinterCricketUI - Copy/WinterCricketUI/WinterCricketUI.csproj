@@ -57,16 +57,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\directives\dropdown-directives.js" />
     <Content Include="app\directives\filter-dropdown-directive.js" />
     <Content Include="app\directives\match-detail-directive.js" />
     <Content Include="app\directives\player-profile-directive.js" />
     <Content Include="app\directives\result-detail-directive.js" />
     <Content Include="app\directives\score-card-directive.js" />
+    <Content Include="app\directives\show-hide-feature-wise-directive.js" />
     <Content Include="app\directives\templates\filter-dropdown-tpl.html" />
+    <Content Include="app\directives\templates\team-dropdown-tpl.html" />
     <Content Include="app\directives\templates\match-detail-tpl.html" />
     <Content Include="app\directives\templates\player-profile-tpl.html" />
     <Content Include="app\directives\templates\result-detail-tpl.html" />
     <Content Include="app\directives\templates\score-card-tpl.html" />
+    <Content Include="app\directives\templates\series-dropdown-tpl.html" />
     <Content Include="app\services\match-service.js" />
     <Content Include="app\services\match-stats-service.js" />
     <Content Include="app\services\matchType-service.js" />
@@ -78,9 +82,15 @@
     <Content Include="app\services\series-service.js" />
     <Content Include="app\services\teams-service.js" />
     <Content Include="app\services\venues-service.js" />
+    <Content Include="app\UI\add-match.html" />
+    <Content Include="app\UI\add-result.html" />
+    <Content Include="app\UI\add-team.html" />
+    <Content Include="app\UI\add-venue.html" />
+    <Content Include="app\UI\score-card.html" />
     <Content Include="app\UI\home.html" />
     <Content Include="app\UI\matches-by-team-controller.js" />
     <Content Include="app\UI\matches-by-team.html" />
+    <Content Include="app\UI\add-match-controller.js" />
     <Content Include="app\UI\player-info-controller.js" />
     <Content Include="app\UI\player-info.html" />
     <Content Include="app\UI\player-search-controller.js" />
