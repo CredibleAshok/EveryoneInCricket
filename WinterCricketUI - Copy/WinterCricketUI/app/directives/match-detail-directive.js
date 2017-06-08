@@ -14,7 +14,7 @@
         };
         return directive;
         function link(scope, element, attrs, ctrl) {
-            console.log('directive loaded.');
+            console.log('match detail directive loaded.');
         }
 
     }
