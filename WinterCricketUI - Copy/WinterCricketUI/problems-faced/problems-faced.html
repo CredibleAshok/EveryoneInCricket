@@ -145,5 +145,9 @@
         services are singleton. for example if created a service security, in this security service i have one method for getting the user details and other method for storing these details.
         now if i use this service on any controller and wanted to access the data returned by the service in first instance. i can use, i will still have the data there. That is why services are singleton
     </p>
+    <p>
+        if any change to model happens outside angularjs context, then to update model we need to trigger digest cycle manually. for example if we update scope.message in setTimeout function, it will not update
+        because setTimeout is javascript function. so to automatically update view we need to user angualar's $interval. So be careful on this.
+    </p>
 </body>
 </html>
