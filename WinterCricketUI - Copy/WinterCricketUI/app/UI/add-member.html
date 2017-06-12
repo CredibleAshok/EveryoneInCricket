@@ -1,0 +1,42 @@
+﻿<div class="row" ng-controller="addMemberCtrl as vm">
+    <form name="addMemberForm">
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newMember.name==undefined || vm.newMember.name==''}">Member Name *:</span>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" ng-model="vm.newMember.name" ng-required="true" />
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validFrom==undefined}">Is Captain</span></div>
+            <div class="col-xs-2">
+                drop down
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validTo==undefined}">Player Type</span></div>
+            <div class="col-xs-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.newMember.validTo" is-open="vm.validTo.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.format" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openValidTo()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newMember.captain==undefined}">Captain*</span>
+            </div>
+            <div class="col-xs-2">
+                <div member-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMember.captain" ng-required="true"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
+                <button ng-disabled="addMemberForm.$invalid" ng-click="vm.saveMember()">Save</button>
+            </div>
+        </div>
+    </form>
+
+</div>
