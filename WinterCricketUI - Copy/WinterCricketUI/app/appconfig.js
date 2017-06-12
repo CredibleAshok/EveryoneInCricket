@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     var myApp = angular.module('myApp');
@@ -271,6 +271,17 @@
             templateUrl: 'app/UI/add-team.html',
             data: {
                 title: 'New Team',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addmember',
+        stateConfig: {
+            url: '/add-member',
+            templateUrl: 'app/UI/add-member.html',
+            data: {
+                title: 'New Member',
                 topLevelMenu: false,
                 hasChild: false
             }
