@@ -1,4 +1,4 @@
-﻿var myAppTest = angular.module('myAppTest', ['myApp', 'ngMockE2E']);
+var myAppTest = angular.module('myAppTest', ['myApp', 'ngMockE2E']);
 
 myAppTest.run(['$httpBackend', 'filterFilter', function ($httpBackend, filterFilter) {
 
@@ -6,10 +6,18 @@ myAppTest.run(['$httpBackend', 'filterFilter', function ($httpBackend, filterFil
     $httpBackend.whenGET(new RegExp('app\/.*')).passThrough();
 
     //api/People
-    //api/Products/UnreserveReasons
     $httpBackend.whenGET(new RegExp('api\/People')).respond(function (method, url) {
         var request = new XMLHttpRequest();
         request.open('GET', 'test-data/profileListCtrl.js', false);
+        request.send(null);
+        var data = JSON.parse(request.response);
+        return [200, data, {}];
+    });
+
+    //api/getcountries
+    $httpBackend.whenGET(new RegExp('api\/Countries')).respond(function (method, url) {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'test-data/countries.js', false);
         request.send(null);
         var data = JSON.parse(request.response);
         return [200, data, {}];
@@ -88,11 +96,16 @@ myAppTest.run(['$httpBackend', 'filterFilter', function ($httpBackend, filterFil
         request.open('GET', 'test-data/players.js', false);
         request.send(null);
         var data = JSON.parse(request.response);
-        var firstName = url.split('?')[1].split('searchObj=')[1].split('firstName%22:%22')[1].split('%22')[0];
-        var lastName = url.split('?')[1].split('searchObj=')[1].split('firstName%22:%22')[1].split('lastName%22:%22')[1].split('%22')[0];
-        var playerId = url.split('?')[1].split('searchObj=')[1].split('firstName%22:%22')[1].split('playerId%22:')[1].split('%7D')[0];
-        var filteredData = filterFilter(data, { memberId: parseInt(playerId) }, true);
-        return [200, filteredData, {}];
+        if (url.indexOf("?") > -1) {
+            var firstName = url.split('?')[1].split('searchObj=')[1].split('firstName%22:%22')[1].split('%22')[0];
+            var lastName = url.split('?')[1].split('searchObj=')[1].split('firstName%22:%22')[1].split('lastName%22:%22')[1].split('%22')[0];
+            var playerId = url.split('?')[1].split('searchObj=')[1].split('firstName%22:%22')[1].split('playerId%22:')[1].split('%7D')[0];
+            var filteredData = filterFilter(data, { memberId: parseInt(playerId) }, true);
+            return [200, filteredData, {}];
+        }else {
+            return [200, data, {}];
+        }
+        
     });
 
     //$http.get(config.apiUrl + 'MatcheTypes/').then(function (resp) {
