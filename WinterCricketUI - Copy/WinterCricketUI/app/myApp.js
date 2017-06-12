@@ -1,4 +1,4 @@
-﻿var myApp = angular.module('myApp', ['ui.router', 'smart-table', 'ngSanitize', 'ui.select']);
+var myApp = angular.module('myApp', ['ui.router', 'smart-table', 'ngSanitize', 'ui.select', 'ui.bootstrap']);
 
 myApp.run(['$state', 'securitySservice', '$q', function ($state, securitySservice, $q) {
 
