@@ -1,0 +1,113 @@
+﻿<div class="row" ng-controller="addMatchStatsCtrl as vm">
+    <form name="addMatchStatsForm">
+        <div class="row">
+            <div class="col-md-6">
+                <span>Match Id:</span>
+            </div>
+            <div class="col-md-6">
+                <input type="text" ng-model="vm.addMatchStats.matchId" ng-disabled="true" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Home Team</span></div>
+                    <div class="col-md-6">
+                        <div team-dropdown
+                             class="input-group-btn"
+                             ng-model="vm.newMatchStats.homeTeam"
+                             ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Runs Scored</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.homeTeam.runsScored" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Extra Given</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.homeTeam.extraGiven" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Over Received</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.homeTeam.oversReceived" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Wickets Lost</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.homeTeam.wicketsLost" ng-required="true"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.lostBy==undefined}">Away Team</span></div>
+                    <div class="col-md-6">
+                        <div team-dropdown
+                             class="input-group-btn"
+                             ng-model="vm.newMatchStats.awayTeam" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.lostBy==undefined}">Runs Scored</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.awayTeam.runsScored" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Extra Given</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.awayTeam.extraGiven" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Over Received</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.awayTeam.oversReceived" ng-required="true"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.wonBy==undefined}">Wickets Lost</span></div>
+                    <div class="col-md-6">
+                        <div number-dropdown
+                             class="input-group-btn"
+                             number-limit="400"
+                             ng-model="vm.newMatchStats.awayTeam.wicketsLost" ng-required="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
+                <button ng-disabled="addMatchStatsForm.$invalid" ng-click="vm.saveResult()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
