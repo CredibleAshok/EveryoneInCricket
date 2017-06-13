@@ -1,7 +1,8 @@
-﻿//addMemberCtrl
+//addMemberCtrl
 (function () {
     myApp.controller('addMemberCtrl', function ($scope, $http, $stateParams, venuesSservice) {
         var vm = this;
+        vm.teamId = $stateParams.teamId;
         vm.newVenue = {};
 
         vm.saveVenue = function () {
