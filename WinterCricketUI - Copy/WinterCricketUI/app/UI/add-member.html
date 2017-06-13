@@ -1,5 +1,8 @@
-﻿<div class="row" ng-controller="addMemberCtrl as vm">
+<div class="row" ng-controller="addMemberCtrl as vm">
     <form name="addMemberForm">
+        <div class="row">
+            <label>Adding Players for: {{vm.teamId}}</label>
+        </div>
         <div class="row">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newMember.name==undefined || vm.newMember.name==''}">Member Name *:</span>
@@ -7,28 +10,54 @@
             <div class="col-xs-2">
                 <input type="text" ng-model="vm.newMember.name" ng-required="true" />
             </div>
-            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validFrom==undefined}">Is Captain</span></div>
-            <div class="col-xs-2">
-                drop down
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validFrom==undefined}">Member Type</span></div>
+            <div class="col-xs-2" ng-if="vm.teamId == undefined">
+                <select ng-model="vm.newMember.memberType">
+                    <option value="1">Player</option>
+                    <option value="2">Manager</option>
+                    <option value="3">Coach</option>
+                    <option value="4">President</option>
+                    <option value="5">Umpire</option>
+                    <option value="6">Scorer</option>
+                </select>
             </div>
-            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validTo==undefined}">Player Type</span></div>
-            <div class="col-xs-2">
-                <p class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.newMember.validTo" is-open="vm.validTo.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.format" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openValidTo()"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </p>
+            <div class="col-xs-2" ng-if="vm.teamId != undefined">
+                <select ng-model="vm.newMember.memberType">
+                    <option value="1">Player</option>
+                </select>
+            </div>
+            <div class="col-xs-4" ng-if="vm.teamId != undefined">
+                <div class="col-xs-6"><span ng-class="{'show-field-error': vm.newMember.playerType==undefined}">Player Type</span></div>
+                <div class="col-xs-6">
+                    <select ng-model="vm.newMember.playerType">
+                        <option value="1">Batsman</option>
+                        <option value="2">Bowler</option>
+                        <option value="3">All-rounder</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="row">
+            <div class="col-xs-2">Is Captain</div>
             <div class="col-xs-2">
-                <span ng-class="{'show-field-error': vm.newMember.captain==undefined}">Captain*</span>
+                <select ng-model="vm.newMember.isCaptain">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
             </div>
+            <div class="col-xs-2">Is WicketKeeper</div>
             <div class="col-xs-2">
-                <div member-dropdown
-                     class="input-group-btn"
-                     ng-model="vm.newMember.captain" ng-required="true"></div>
+                <select ng-model="vm.newMember.isWicketKeeper">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+            </div>
+            <div class="col-xs-2">Playing Hand</div>
+            <div class="col-xs-2">
+                <select ng-model="vm.newMember.isWicketKeeper">
+                    <option value="1">Left Hand</option>
+                    <option value="2">Right Hand</option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -38,5 +67,4 @@
             </div>
         </div>
     </form>
-
 </div>
