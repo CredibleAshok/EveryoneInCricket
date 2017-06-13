@@ -286,6 +286,28 @@
                 hasChild: false
             }
         }
+    }, {
+        name: 'addPlayer',
+        stateConfig: {
+            url: '/add-player/:teamId',
+            templateUrl: 'app/UI/add-member.html',
+            data: {
+                title: 'New Player',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addMatchStats',
+        stateConfig: {
+            url: '/add-match-stats/:matchId',
+            templateUrl: 'app/UI/add-match-stats.html',
+            data: {
+                title: 'New Match Stats',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
     }
     //#endregion post request routes
     ];
