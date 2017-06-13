@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     myApp.controller('playersListCtrl', function ($scope, $http, config, filterFilter, $stateParams, playersSservice, $state) {
         var vm = this;
         vm.teamId = $stateParams.teamId;
