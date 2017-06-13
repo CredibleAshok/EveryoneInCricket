@@ -1,1 +1,65 @@
-﻿<div><p>Add New Result</p></div>
+<div class="row" ng-controller="addResultCtrl as vm">
+    <form name="addResultForm">
+        <div class="row">
+            <div class="col-xs-2">
+                <span>Match Id:</span>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" ng-model="vm.matchId" ng-disabled="true" />
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newResult.wonBy==undefined}">Won By</span></div>
+            <div class="col-xs-2">
+                <div team-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newResult.wonBy"
+                     ng-required="true"></div>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newResult.lostBy==undefined}">Lost By</span></div>
+            <div class="col-xs-2">
+                <div team-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newResult.lostBy" ng-required="true"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">Decided To Bat</div>
+            <div class="col-xs-2">
+                <div team-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newResult.decidedToBat" ng-required="true"></div>
+            </div>
+            <div class="col-xs-2">Winning Mode</div>
+            <div class="col-xs-2">
+                <select ng-model="vm.newResult.winningMode">
+                    <option value="1">Wickets</option>
+                    <option value="2">Runs</option>
+                </select>
+            </div>
+            <div class="col-xs-4" ng-if="vm.newResult.winningMode==2">
+                <div class="col-xs-6">By Runs</div>
+                <div class="col-xs-6">
+                    <div number-dropdown
+                         class="input-group-btn"
+                         number-limit="200"
+                         ng-model="vm.newResult.byRuns" ng-required="true"></div>
+                </div>
+            </div>
+            <div class="col-xs-4" ng-if="vm.newResult.winningMode==1">
+                <div class="col-xs-6">By Wickets</div>
+                <div class="col-xs-6">
+                    <div number-dropdown
+                         class="input-group-btn"
+                         number-limit="10"
+                         ng-model="vm.newResult.byWickets" ng-required="true"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
+                <button ng-disabled="addResultForm.$invalid" ng-click="vm.saveResult()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
