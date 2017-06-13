@@ -1,58 +1,70 @@
-﻿<div class="row" ng-controller="addMatchCtrl as vm">
-    <div class="row">
-        <div class="col-xs-2">Series:</div>
-        <div class="col-xs-2">
-            <div series-dropdown
-                 class="input-group-btn"
-                 ng-model="vm.newMatch.series"></div>
+<div class="row" ng-controller="addMatchCtrl as vm">
+    <form name="addMatchForm">
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newMatch.series==undefined}">Series *:</span>
+            </div>
+            <div class="col-xs-2">
+                <div series-dropdown-no-select-all
+                     class="input-group-btn"
+                     ng-model="vm.newMatch.series" ng-required="true"></div>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMatch.homeTeam==undefined}">Home Team*</span></div>
+            <div class="col-xs-2">
+                <div team-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMatch.homeTeam" ng-required="true"></div>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMatch.awayTeam==undefined}">Away Team*</span></div>
+            <div class="col-xs-2">
+                <div team-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMatch.awayTeam" ng-required="true"></div>
+                <span ng-show="(vm.newMatch.awayTeam != undefined && vm.newMatch.homeTeam != undefined) && (vm.newMatch.homeTeam.name == vm.newMatch.awayTeam.name)" style="color:red;">Home Team and Away team can not be same.</span>
+            </div>
         </div>
-        <div class="col-xs-2">Home Team</div>
-        <div class="col-xs-2">
-            <div team-dropdown
-                 class="input-group-btn"
-                 ng-model="vm.newMatch.homeTeam"></div>
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newMatch.matchDate==undefined}">Date*</span>
+            </div>
+            <div class="col-xs-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.newMatch.matchDate" is-open="vm.popup1.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.format" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMatch.matchDate==undefined}">Time*</span></div>
+            <div class="col-xs-2">
+                <div uib-timepicker ng-model="vm.newMatch.matchDate"></div>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMatch.matchType==undefined}">Match Type*</span></div>
+            <div class="col-xs-2">
+                <div match-type-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMatch.matchType" ng-required="true"></div>
+            </div>
         </div>
-        <div class="col-xs-2">Away Team</div>
-        <div class="col-xs-2">
-            <div team-dropdown
-                 class="input-group-btn"
-                 ng-model="vm.newMatch.awayTeam"></div>
-            <span ng-show="vm.newMatch.homeTeam.name == vm.newMatch.awayTeam.name" style="color:red;">Home Team and Away team can not be same.</span>
+        <div class="row">
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMatch.venue==undefined}">Venue*</span></div>
+            <div class="col-xs-2">
+                <div venue-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMatch.venue" ng-required="true"></div>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">Date:</div>
-        <div class="col-xs-2">
-            date calender to implement
+        <div class="row">
+            <div class="col-xs-12">
+                <button ng-disabled="addMatchForm.$invalid" ng-click="vm.saveMatch()">Save</button>
+            </div>
         </div>
-        <div class="col-xs-2">Time</div>
-        <div class="col-xs-2">
-            Time to implemnt
-        </div>
-        <div class="col-xs-2">Match Type</div>
-        <div class="col-xs-2">
-            <div match-type-dropdown
-                 class="input-group-btn"
-                 ng-model="vm.newMatch.matchType"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2">Venue:</div>
-        <div class="col-xs-2">
-            <div venue-dropdown
-                 class="input-group-btn"
-                 ng-model="vm.newMatch.venue"></div>
-        </div>
-        <div class="col-xs-2"></div>
-        <div class="col-xs-2">
-        </div>
-        <div class="col-xs-2"></div>
-        <div class="col-xs-2">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <button ng-click="vm.saveMatch()">Save</button>
-        </div>
-    </div>
+    </form>
+
 </div>

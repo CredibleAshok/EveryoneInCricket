@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     var myApp = angular.module('myApp');
@@ -271,6 +271,39 @@
             templateUrl: 'app/UI/add-team.html',
             data: {
                 title: 'New Team',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addmember',
+        stateConfig: {
+            url: '/add-member',
+            templateUrl: 'app/UI/add-member.html',
+            data: {
+                title: 'New Member',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addPlayer',
+        stateConfig: {
+            url: '/add-player/:teamId',
+            templateUrl: 'app/UI/add-member.html',
+            data: {
+                title: 'New Player',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
+    }, {
+        name: 'addMatchStats',
+        stateConfig: {
+            url: '/add-match-stats/:matchId',
+            templateUrl: 'app/UI/add-match-stats.html',
+            data: {
+                title: 'New Match Stats',
                 topLevelMenu: false,
                 hasChild: false
             }

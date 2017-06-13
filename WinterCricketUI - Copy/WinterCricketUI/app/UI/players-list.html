@@ -1,5 +1,11 @@
-﻿<div class="container">
+<div class="container">
     <div ng-controller="playersListCtrl as vm">
-        <player-profile-tpl players-list="vm.playersList"></player-profile-tpl>
+        <div class="row">
+            <player-profile-tpl players-list="vm.playersList"></player-profile-tpl>
+        </div>
+        <div class="row">
+            <!--<a show-if-feature="Add Player" ui-sref="addPlayer({teamId:vm.teamId})">Add Player</a>-->
+            <a ui-sref="addPlayer({teamId:vm.teamId})">Add Player</a>
+        </div>
     </div>
 </div>

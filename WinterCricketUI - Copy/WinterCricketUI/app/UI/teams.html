@@ -1,4 +1,4 @@
-﻿<div ng-controller="teamsCtrl as vm">
+<div ng-controller="teamsCtrl as vm">
      <div class="row">
          <div class="panel panel-default">
              <div class="panel-heading">
@@ -61,17 +61,21 @@
             </tr>
             <tr ng-repeat="row in tableList">
                 <td>{{row.teamId}}</td>
-                <td>{{row.name}}</td>
+                <td><a ui-sref="playersList({teamId: (row.teamId)})">{{row.name}}</a></td>
                 <td>{{row.validTo}}</td>
                 <td>{{row.teamFlagId}}</td>
                 <td>{{row.captain}}</td>
-                <td><a show-if-feature="Modify Team" ui-sref="modifyTeam({teamId: row.teamId})">Modify Team</a></td>
+                <td>
+                    <a show-if-feature="Modify Team" ui-sref="modifyTeam({teamId: row.teamId})">Modify Team</a><a ui-sref="addPlayer({teamId:vm.teamId})">Add Player</a>
+                </td>
             </tr>
         </table>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <a ui-sref="addTeam" show-if-feature="Add Team">Add New Team</a>
+        <div class="col-md-6">
+            <div class="col-md-12"><a ui-sref="addTeam" show-if-feature="Add Team">Add New Team</a></div>
+        </div>
+        <div class="col-md-6">
         </div>
     </div>
 </div>

@@ -1,0 +1,70 @@
+<div class="row" ng-controller="addMemberCtrl as vm">
+    <form name="addMemberForm">
+        <div class="row">
+            <label>Adding Players for: {{vm.teamId}}</label>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newMember.name==undefined || vm.newMember.name==''}">Member Name *:</span>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" ng-model="vm.newMember.name" ng-required="true" />
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validFrom==undefined}">Member Type</span></div>
+            <div class="col-xs-2" ng-if="vm.teamId == undefined">
+                <select ng-model="vm.newMember.memberType">
+                    <option value="1">Player</option>
+                    <option value="2">Manager</option>
+                    <option value="3">Coach</option>
+                    <option value="4">President</option>
+                    <option value="5">Umpire</option>
+                    <option value="6">Scorer</option>
+                </select>
+            </div>
+            <div class="col-xs-2" ng-if="vm.teamId != undefined">
+                <select ng-model="vm.newMember.memberType">
+                    <option value="1">Player</option>
+                </select>
+            </div>
+            <div class="col-xs-4" ng-if="vm.teamId != undefined">
+                <div class="col-xs-6"><span ng-class="{'show-field-error': vm.newMember.playerType==undefined}">Player Type</span></div>
+                <div class="col-xs-6">
+                    <select ng-model="vm.newMember.playerType">
+                        <option value="1">Batsman</option>
+                        <option value="2">Bowler</option>
+                        <option value="3">All-rounder</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">Is Captain</div>
+            <div class="col-xs-2">
+                <select ng-model="vm.newMember.isCaptain">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="col-xs-2">Is WicketKeeper</div>
+            <div class="col-xs-2">
+                <select ng-model="vm.newMember.isWicketKeeper">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+            </div>
+            <div class="col-xs-2">Playing Hand</div>
+            <div class="col-xs-2">
+                <select ng-model="vm.newMember.isWicketKeeper">
+                    <option value="1">Left Hand</option>
+                    <option value="2">Right Hand</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
+                <button ng-disabled="addMemberForm.$invalid" ng-click="vm.saveMember()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

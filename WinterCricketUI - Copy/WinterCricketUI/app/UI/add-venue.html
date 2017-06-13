@@ -1,1 +1,52 @@
-﻿<div><p>Add New Venue</p></div>
+<div class="row" ng-controller="addVenuCtrl as vm">
+    <form name="addVenueForm">
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newVenue.name==undefined || vm.newVenue.name==''}">Name *:</span>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" ng-model="vm.newVenue.name" ng-required="true" />
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newVenue.country==undefined}">Country*</span></div>
+            <div class="col-xs-2">
+                <div country-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newVenue.country" 
+                     ng-required="true"
+                     drpname="countryDropdown"
+                     drptitle="country..."></div>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newVenue.state==undefined}">State*</span></div>
+            <div class="col-xs-2">
+                <div state-dropdown
+                     class="input-group-btn"
+                     country-id="{{vm.newVenue.country.Id}}"
+                     ng-model="vm.newVenue.state" ng-required="true"
+                     drpname="stateDropdown"
+                     drptitle="state..."></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newVenue.suburb==undefined}">Suburb*</span>
+            </div>
+            <div class="col-xs-2">
+                <div suburb-dropdown
+                     class="input-group-btn"
+                     state-id="{{vm.newVenue.state.Id}}"
+                     ng-model="vm.newVenue.suburb" ng-required="true"></div>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': addVenueForm.postcode.$invalid == true}">PostCode*</span></div>
+            <div class="col-xs-2">
+                <input type="text" name="postcode" ng-model="vm.newVenue.postcode" ng-required="true" ng-pattern="/^[0-9]{4,6}$/" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
+                <button ng-disabled="addVenueForm.$invalid" ng-click="vm.saveVenue()">Save</button>
+            </div>
+        </div>
+    </form>
+
+</div>

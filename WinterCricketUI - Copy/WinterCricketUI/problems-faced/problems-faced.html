@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
@@ -148,6 +148,10 @@
     <p>
         if any change to model happens outside angularjs context, then to update model we need to trigger digest cycle manually. for example if we update scope.message in setTimeout function, it will not update
         because setTimeout is javascript function. so to automatically update view we need to user angualar's $interval. So be careful on this.
+    </p>
+    <p>
+        TimePicker: adds the time to existing date. for example if we are selecting date and time for some event from different controls(i.e datepicker and timepicker.), time picker will add time to
+        already selected date from datepicker. for this to happen just keep the ng-model value same for both controls.
     </p>
 </body>
 </html>

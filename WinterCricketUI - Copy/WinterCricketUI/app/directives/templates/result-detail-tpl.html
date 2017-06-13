@@ -1,4 +1,4 @@
-﻿<div ng-controller="resultDetailCtrl as vm">
+<div ng-controller="resultDetailCtrl as vm">
     <div class="row" ng-show="displayType == 1">
         <table class="table table-hover table-condensed">
                 <tr>
@@ -29,8 +29,11 @@
                             {{matchStatDetailRow.teamDetails.name}} ( {{matchStatDetailRow.runsScored}} / {{matchStatDetailRow.wicketsLost}} ) - in {{matchStatDetailRow.oversReceived}} overs
                         </div>
                         <div class="col-md-2">
-                            <a show-if-feature="Add Result" ui-sref="addResult({matchId: row.matchId})">Add Result</a>
-                            <a show-if-feature="Modify Result" ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>
+                            <!--<a show-if-feature="Add Result" ui-sref="addResult({matchId: row.matchId})">Add Result</a>
+                            <a show-if-feature="Modify Result" ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>-->
+                            <a  ui-sref="addResult({matchId: row.matchId})">Add Result</a>
+                            <a  ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>
+                            <a ui-sref="addMatchStats({matchId: row.matchId})">Add Match Stats</a>
                         </div>
                     </div>
                     <!--<div class="row" ng-show="row.matchStatDetails.length==0">
@@ -77,9 +80,13 @@
                     </div>
                 </td>
                 <td>
-                    <a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a>
+                    <!--<a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a>
                     <a show-if-feature="Add Result" ui-sref="addResult({matchId: row.matchId})">Add Result</a>
-                    <a show-if-feature="Modify Result" ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>
+                    <a show-if-feature="Modify Result" ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>-->
+                    <a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a>
+                    <a  ui-sref="addResult({matchId: row.matchId})">Add Result</a>
+                    <a  ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>
+                    <a ui-sref="addMatchStats({matchId: row.matchId})">Add Match Stats</a>
                 </td>
             </tr>
         </table>

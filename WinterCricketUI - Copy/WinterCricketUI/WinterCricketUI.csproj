@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -65,8 +65,10 @@
     <Content Include="app\directives\result-detail-directive.js" />
     <Content Include="app\directives\score-card-directive.js" />
     <Content Include="app\directives\show-hide-feature-wise-directive.js" />
+    <Content Include="app\directives\templates\country-dropdown-tpl.html" />
     <Content Include="app\directives\templates\filter-dropdown-tpl.html" />
     <Content Include="app\directives\templates\match-type-tpl.html" />
+    <Content Include="app\directives\templates\member-dropdown-tpl.html" />
     <Content Include="app\directives\templates\team-dropdown-tpl.html" />
     <Content Include="app\directives\templates\match-detail-tpl.html" />
     <Content Include="app\directives\templates\player-profile-tpl.html" />
@@ -74,6 +76,7 @@
     <Content Include="app\directives\templates\score-card-tpl.html" />
     <Content Include="app\directives\templates\series-dropdown-tpl.html" />
     <Content Include="app\directives\templates\venue-dropdown-tpl.html" />
+    <Content Include="app\services\address-service.js" />
     <Content Include="app\services\match-service.js" />
     <Content Include="app\services\match-stats-service.js" />
     <Content Include="app\services\matchType-service.js" />
@@ -85,9 +88,16 @@
     <Content Include="app\services\series-service.js" />
     <Content Include="app\services\teams-service.js" />
     <Content Include="app\services\venues-service.js" />
+    <Content Include="app\UI\add-match-stats-controller.js" />
+    <Content Include="app\UI\add-match-stats.html" />
     <Content Include="app\UI\add-match.html" />
+    <Content Include="app\UI\add-member-controller.js" />
+    <Content Include="app\UI\add-member.html" />
+    <Content Include="app\UI\add-result-controller.js" />
     <Content Include="app\UI\add-result.html" />
+    <Content Include="app\UI\add-team-controller.js" />
     <Content Include="app\UI\add-team.html" />
+    <Content Include="app\UI\add-venue-controller.js" />
     <Content Include="app\UI\add-venue.html" />
     <Content Include="app\UI\score-card.html" />
     <Content Include="app\UI\home.html" />
@@ -161,6 +171,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-2.5.0.js" />
     <Content Include="test-data\clubs.js" />
     <Content Include="test-data\countries.js" />
     <Content Include="test-data\e2e.js" />
