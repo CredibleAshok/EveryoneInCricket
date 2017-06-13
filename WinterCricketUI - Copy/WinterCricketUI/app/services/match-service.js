@@ -1,4 +1,4 @@
-﻿// Name: matchSservice
+// Name: matchSservice
 // Type: Angular Service
 // Purpose: Provide list of series available
 // Design: On initialisation this service loads the reference data from the server
@@ -16,6 +16,7 @@
             getCompletedMatchesBySeriesId: function (seriesId, matchStateId) { return getCompletedMatchesBySeriesId(seriesId, matchStateId) },
             getResultsByMemberBySeriesId: function (memberId, teamId, seriesId, matchStateId) { return getResultsByMemberBySeriesId(memberId, teamId, seriesId, matchStateId) },
             getMemberMatchesBySeriesId: function (teamId, seriesId) { return getMemberMatchesBySeriesId(teamId, seriesId) },
+            getTeamsByMatchId: function (matchId) { return getTeamsByMatchId(matchId) },
             // post methods
             saveNewMatch: function (newMatch) { return saveNewMatch(newMatch) }
         };
@@ -28,6 +29,25 @@
             return $http({
                 url: wkUrl,
                 params: { seriesId: seriesId },
+                method: 'GET',
+                isArray: true
+            }).then(success, fail)
+            function success(resp) {
+                return resp.data;
+            }
+            function fail(error) {
+                var msg = "Error getting  list: " + error;
+                //log.logError(msg, error, null, true);
+                throw error; // so caller can see it
+            }
+        }
+
+        //get  list on the basis on 
+        function getTeamsByMatchId(matchId) {
+            var wkUrl = config.apiUrl + 'getTeamsByMatchId/';
+            return $http({
+                url: wkUrl,
+                params: { matchId: matchId },
                 method: 'GET',
                 isArray: true
             }).then(success, fail)
