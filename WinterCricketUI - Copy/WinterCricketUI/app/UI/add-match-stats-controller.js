@@ -8,7 +8,7 @@
 
         var getTeamsByMatchId = function () {
             vm.teamlist = [];
-            matchSservice.getTeamsByMatchId(vm.matchId).then(function (resp) {
+            matchSservice.getTeamsByMatchId(vm.addMatchStats.matchId).then(function (resp) {
                 vm.teamlist.push(resp[0].awayTeamDetails);
                 vm.teamlist.push(resp[0].homeTeamDetails);
             });

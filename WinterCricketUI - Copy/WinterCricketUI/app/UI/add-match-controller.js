@@ -1,6 +1,6 @@
 //addMatchCtrl
 (function () {
-    myApp.controller('addMatchCtrl', function ($scope, $http, $stateParams, matchSservice) {
+    myApp.controller('addMatchCtrl', function ($scope, $http, $stateParams, matchSservice, teamsSservice) {
         var vm = this;
         vm.newMatch = {};
         //#region datepicker settings
@@ -36,9 +36,11 @@
             });
         };
 
-        var getProfile = function () {
-            console.log("addMatchCtrl controller loaded." );
+        var getTeamList = function () {
+            teamsSservice.getTeamsList().then(function (resp) {
+                vm.teamlist = resp;
+            });
         };
-        getProfile();
+        getTeamList();
     });
 })();
