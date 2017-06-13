@@ -140,6 +140,20 @@ myAppTest.run(['$httpBackend', 'filterFilter', function ($httpBackend, filterFil
         return [200, data, {}];
     });
 
+    //http://localhost:65481/api/getTeamsByMatchId
+    $httpBackend.whenGET(new RegExp('api\/getTeamsByMatchId')).respond(function (method, url) {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'test-data/matchList.js', false);
+        request.send(null);
+        var paramMatchId = /api\/?.*?(?:\/?matchId=(.*))/.exec(url)[1];
+        var data = JSON.parse(request.response);
+        if (paramMatchId != "0") {
+            var filteredData = filterFilter(data, { matchId: parseInt(paramMatchId) }, true);
+            return [200, filteredData, {}];
+        }
+        return [200, data, {}];
+    });
+
     //http://localhost:65481/api/getMatches
     $httpBackend.whenGET(new RegExp('api\/getResults')).respond(function (method, url) {
         var request = new XMLHttpRequest();
