@@ -229,7 +229,7 @@
         }
     }]);
 
-    myApp.directive('teamDropdown', ['$timeout', 'teamsSservice', function teamDropdownDirectiveFunction($timeout, teamsSservice) {
+    myApp.directive('teamDropdown', ['$timeout', 'teamsSservice', '$parse', function teamDropdownDirectiveFunction($timeout, teamsSservice, $parse) {
         //Usage:
         //<team-dropdown></team-dropdown>
         var directive = {
@@ -245,9 +245,8 @@
         return directive;
         function link(scope, element, attrs, ctrl) {
             $timeout(function () {
-                teamsSservice.getTeamsList().then(function (resp) {
-                    scope.teamList = resp;
-                });
+                scope.teamList = scope.$parent.vm.teamlist;
+                //scope.teamList = JSON.parse((attrs.teamData));
                 console.log('team list loaded for series drop down directive:- ');
             });
 
@@ -334,5 +333,50 @@
         }
 
     }]);
+
+    // for wikets, runs and overs.
+    myApp.directive('numberDropdown', ['$timeout', function numberDropdownDirectiveFunction($timeout) {
+        //Usage:
+        //<number-dropdown></number-dropdown>
+        var directive = {
+            link: link,
+            restrict: 'AE',
+            require: '^ngModel',
+            transclude: true,
+            template: '<div><ui-select name="$parent.drpname" ng-model="$parent.model" theme="bootstrap" reset-search-input="true" class="icon-not-end-form-control"'+
+                'ng-required="$parent.isrequired" focus-on="$parent.drpname" ng-disabled="$parent.isDisabled"> <ui-select-match placeholder="search..." title="$parent.drptitle">' +
+                '{{$select.selected.name}} </ui-select-match> <ui-select-choices repeat="row in dataList | filter: $select.search" refresh="refreshList($select.search)"' +
+                'refresh-delay="200"> <span ng-bind-html="row.name | highlight: $select.search"></span></ui-select-choices></ui-select></div>',
+            scope: {
+                'model': '=ngModel',
+                'numberLimit': '@'
+            },
+        };
+        return directive;
+        function link(scope, element, attrs, ctrl) {
+            $timeout(function () {
+                var mylen = attrs.numberLimit;
+                var myTempArr = [];
+                for (var i = 1; i < mylen; i++) {
+                    var myobj = {};
+                    myobj.name = i;
+                    myTempArr.push(myobj);
+                }
+                scope.dataList = myTempArr;
+            });
+
+            scope.$watch('model', function () {
+                scope.$eval(attrs.ngModel + ' = model');
+            });
+            scope.$watch(attrs.ngModel, function (val) {
+                scope.model = val;
+                ctrl.$setViewValue(val);
+                if (angular.isDefined(attrs.callFunc)) {
+                    scope.callFunc();
+                }
+            });
+        }
+    }]);
+
 })();
 
