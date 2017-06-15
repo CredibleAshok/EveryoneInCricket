@@ -308,6 +308,17 @@
                 hasChild: false
             }
         }
+    }, {
+        name: 'addIndividualScore',
+        stateConfig: {
+            url: '/add-invididual-scores/:matchId',
+            templateUrl: 'app/UI/add-invididual-scores.html',
+            data: {
+                title: 'Add Invididual Scores',
+                topLevelMenu: false,
+                hasChild: false
+            }
+        }
     }
     //#endregion post request routes
     ];
