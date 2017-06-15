@@ -1,11 +1,11 @@
-﻿<div class="row" ng-controller="addMatchStatsCtrl as vm">
+<div class="row" ng-controller="addMatchStatsCtrl as vm">
     <form name="addMatchStatsForm">
         <div class="row">
             <div class="col-md-6">
                 <span>Match Id:</span>
             </div>
             <div class="col-md-6">
-                <input type="text" ng-model="vm.addMatchStats.matchId" ng-disabled="true" />
+                <input type="text" ng-model="vm.addMatchStats.matchId" ng-disabled="true" class="form-control" />
             </div>
         </div>
         <div class="row">
@@ -58,11 +58,10 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.lostBy==undefined}">Away Team</span></div>
+                    <div class="col-md-6"><span ng-class="{'show-field-error': vm.newMatchStats.awayTeam==undefined}">Away Team</span></div>
                     <div class="col-md-6">
-                        <div team-dropdown
-                             class="input-group-btn"
-                             ng-model="vm.newMatchStats.awayTeam" ng-required="true"></div>
+                        <team-dropdown class="input-group-btn"
+                                       ng-model="vm.newMatchStats.awayTeam" data-is-disabled="true"></team-dropdown>
                     </div>
                 </div>
                 <div class="row">

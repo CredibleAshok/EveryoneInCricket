@@ -1,0 +1,118 @@
+﻿<div class="row" ng-controller="addIndividualScoresCtrl as vm">
+    <form name="addIndividualScoresForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <span>Match Id:</span>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" ng-model="vm.addIndividualScores.matchId" ng-disabled="true" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row" ng-disabled="true">
+                    {{vm.teamList[0].name}}
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Ball Faced</th>
+                                <th>Runs Scored</th>
+                                <th>Six</th>
+                                <th>Fours</th>
+                                <th>How Out</th>
+                                <th>Overs Bowled</th>
+                                <th>Bowling Type</th>
+                                <th>Wicket Taken</th>
+                                <th>Runs Given</th>
+                                <th>Bowled By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="player in vm.homeTeam.teamList track by $index">
+                                <td><input type="text" class="full-width" ng-model="player.memberId" placeholder="player Id" ng-disabled="true" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.name" placeholder="Name" ng-disabled="true" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.ballFaced" placeholder="Ball Faced" ng-blur="vm.setValue($index, 'ballFaced', player.memberId, player.ballFaced)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.runsScored" placeholder="Runs Scored" ng-blur="vm.setValue($index, 'runsScored', player.memberId, player.runsScored)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.six" placeholder="Six" ng-blur="vm.setValue($index, 'six', player.memberId, player.six)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.fours" placeholder="Fours" ng-blur="vm.setValue($index, 'fours', player.memberId, player.fours)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.howOut" placeholder="How Out" ng-blur="vm.setValue($index, 'howOut', player.memberId, player.howOut)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.oversBowled" placeholder="Overs Bowled" ng-blur="vm.setValue($index, 'oversBowled', player.memberId, player.oversBowled)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.bowlingType" placeholder="Bowling Type" ng-blur="vm.setValue($index, 'bowlingType', player.memberId, player.bowlingType)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.wicketTaken" placeholder="Wicket Taken" ng-blur="vm.setValue($index, 'wicketTaken', player.memberId, player.wicketTaken)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.runsGiven" placeholder="Runs Given" ng-blur="vm.setValue($index, 'runsGiven', player.memberId, player.runsGiven)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.bowledBy" placeholder="Bowled By" ng-blur="vm.setValue($index, 'bowledBy', player.memberId, player.bowledBy)" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="12"><span>{{vm.homeScoreSavedMsg}}</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="11"><span>&nbsp;</span></td>
+                                <td><button ng-click="vm.saveHomeTeamIndividualScores()">Save</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row" ng-disabled="true">
+                    {{vm.teamList[1].name}}
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Ball Faced</th>
+                                <th>Runs Scored</th>
+                                <th>Six</th>
+                                <th>Fours</th>
+                                <th>How Out</th>
+                                <th>Overs Bowled</th>
+                                <th>Bowling Type</th>
+                                <th>Wicket Taken</th>
+                                <th>Runs Given</th>
+                                <th>Bowled By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="player in vm.awayTeam.teamList track by $index">
+                                <td><input type="text" class="full-width" ng-model="player.memberId" placeholder="player Id" ng-disabled="true" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.name" placeholder="Name" ng-disabled="true" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.ballFaced" placeholder="Ball Faced" ng-blur="vm.setValue($index, 'ballFaced', player.memberId, player.ballFaced)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.runsScored" placeholder="Runs Scored" ng-blur="vm.setValue($index, 'runsScored', player.memberId, player.runsScored)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.six" placeholder="Six" ng-blur="vm.setValue($index, 'six', player.memberId, player.six)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.fours" placeholder="Fours" ng-blur="vm.setValue($index, 'fours', player.memberId, player.fours)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.howOut" placeholder="How Out" ng-blur="vm.setValue($index, 'howOut', player.memberId, player.howOut)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.oversBowled" placeholder="Overs Bowled" ng-blur="vm.setValue($index, 'oversBowled', player.memberId, player.oversBowled)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.bowlingType" placeholder="Bowling Type" ng-blur="vm.setValue($index, 'bowlingType', player.memberId, player.bowlingType)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.wicketTaken" placeholder="Wicket Taken" ng-blur="vm.setValue($index, 'wicketTaken', player.memberId, player.wicketTaken)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.runsGiven" placeholder="Runs Given" ng-blur="vm.setValue($index, 'runsGiven', player.memberId, player.runsGiven)" /></td>
+                                <td><input type="text" class="full-width" ng-model="player.bowledBy" placeholder="Bowled By" ng-blur="vm.setValue($index, 'bowledBy', player.memberId, player.bowledBy)" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="12"><span>{{vm.awayScoreSavedMsg}}</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="11"><span>&nbsp;</span></td>
+                                <td><button ng-click="vm.saveAwayTeamIndividualScores()">Save</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

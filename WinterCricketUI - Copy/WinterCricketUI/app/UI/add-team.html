@@ -1,1 +1,47 @@
-﻿<div><p>Add new Team</p></div>
+<div class="row" ng-controller="addTeamCtrl as vm">
+    <form name="addTeamForm">
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newTeam.name==undefined || vm.newTeam.name==''}">Team Name *:</span>
+            </div>
+            <div class="col-xs-2">
+                <input type="text" ng-model="vm.newTeam.name" ng-required="true" class="form-control" />
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newTeam.validFrom==undefined}">Valid From</span></div>
+            <div class="col-xs-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.newTeam.validFrom" is-open="vm.validFrom.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.format" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openValidFrom()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newTeam.validTo==undefined}">Valid To</span></div>
+            <div class="col-xs-2">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.newTeam.validTo" is-open="vm.validTo.opened" datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" alt-input-formats="vm.format" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openValidTo()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <span ng-class="{'show-field-error': vm.newTeam.captain==undefined}">Captain*</span>
+            </div>
+            <div class="col-xs-2">
+                <div member-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newTeam.captain" ng-required="true"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
+                <button ng-disabled="addTeamForm.$invalid" ng-click="vm.saveTeam()">Save</button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -88,6 +88,8 @@
     <Content Include="app\services\series-service.js" />
     <Content Include="app\services\teams-service.js" />
     <Content Include="app\services\venues-service.js" />
+    <Content Include="app\UI\add-invididual-scores-controller.js" />
+    <Content Include="app\UI\add-invididual-scores.html" />
     <Content Include="app\UI\add-match-stats-controller.js" />
     <Content Include="app\UI\add-match-stats.html" />
     <Content Include="app\UI\add-match.html" />

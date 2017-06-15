@@ -1,4 +1,4 @@
-﻿//addTeamCtrl
+//addTeamCtrl
 (function () {
     myApp.controller('addTeamCtrl', function ($scope, $http, $stateParams, playersSservice) {
         var vm = this;

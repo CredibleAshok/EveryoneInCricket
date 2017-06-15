@@ -79,6 +79,21 @@ myAppTest.run(['$httpBackend', 'filterFilter', function ($httpBackend, filterFil
         return [200, filteredData, {}];
     });
 
+    //http://localhost:65481/api/teamsListByMatchId
+    $httpBackend.whenGET(new RegExp('api\/teamsListByMatchId')).respond(function (method, url) {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'test-data/players.js', false);
+        request.send(null);
+        var data = JSON.parse(request.response);
+        var paramHomeTeamId = url.split('?')[1].split('homeTeamId=')[1];
+        var paramAwayTeamId = url.split('?')[1].split('&')[0].split('awayTeamId=')[1];
+        var homeTeamList = filterFilter(data, { teamId: parseInt(paramHomeTeamId) }, true);
+        var awayTeamList = filterFilter(data, { teamId: parseInt(paramAwayTeamId) }, true);
+        var filteredData = [];
+        filteredData.push(homeTeamList);
+        filteredData.push(awayTeamList);
+        return [200, filteredData, {}];
+    });
     //http://localhost:65481/api/playerByMemberId
     $httpBackend.whenGET(new RegExp('api\/playerByMemberId')).respond(function (method, url) {
         var request = new XMLHttpRequest();
