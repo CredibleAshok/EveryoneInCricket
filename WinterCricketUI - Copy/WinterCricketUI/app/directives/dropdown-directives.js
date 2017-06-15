@@ -239,7 +239,8 @@
             transclude: true,
             templateUrl: 'app/directives/templates/team-dropdown-tpl.html',
             scope: {
-                'model': '=ngModel'
+                'model': '=ngModel',
+                'isDisabled': '='
             },
         };
         return directive;
@@ -378,5 +379,131 @@
         }
     }]);
 
+    //winning - mode - dropdown
+    myApp.directive('winningModeDropdown', ['$timeout', function winningModeDropdownDirectiveFunction($timeout) {
+        //Usage:
+        //<winning-mode-dropdown></winning-mode-dropdown>
+        var directive = {
+            link: link,
+            restrict: 'AE',
+            require: '^ngModel',
+            transclude: true,
+            template: '<div><ui-select name="$parent.drpname" ng-model="$parent.model" theme="bootstrap" reset-search-input="true" class="icon-not-end-form-control"' +
+                'ng-required="$parent.isrequired" focus-on="$parent.drpname" ng-disabled="$parent.isDisabled"> <ui-select-match placeholder="search..." title="$parent.drptitle">' +
+                '{{$select.selected.name}} </ui-select-match> <ui-select-choices repeat="row in dataList | filter: $select.search" refresh="refreshList($select.search)"' +
+                'refresh-delay="200"> <span ng-bind-html="row.name | highlight: $select.search"></span></ui-select-choices></ui-select></div>',
+            scope: {
+                'model': '=ngModel',
+                'numberLimit': '@'
+            },
+        };
+        return directive;
+        function link(scope, element, attrs, ctrl) {
+            $timeout(function () {
+                scope.dataList = scope.$parent.vm.winningModeList;
+            });
+
+            scope.$watch('model', function () {
+                scope.$eval(attrs.ngModel + ' = model');
+            });
+            scope.$watch(attrs.ngModel, function (val) {
+                scope.model = val;
+                ctrl.$setViewValue(val);
+                if (angular.isDefined(attrs.callFunc)) {
+                    scope.callFunc();
+                }
+            });
+        }
+    }]);
+
+    //memberType
+    myApp.directive('memberTypeDropdown', ['$timeout', function memberTypeDropdownDirectiveFunction($timeout) {
+        //Usage:
+        //<member-type-dropdown></match-type-dropdown>
+        var directive = {
+            link: link,
+            restrict: 'AE',
+            require: '^ngModel',
+            transclude: true,
+            template: '<div><ui-select name="$parent.drpname" ng-model="$parent.model" theme="bootstrap" reset-search-input="true" class="icon-not-end-form-control"' +
+                'ng-required="$parent.isrequired" focus-on="$parent.drpname" ng-disabled="$parent.isDisabled"> <ui-select-match placeholder="search..." title="$parent.drptitle">' +
+                '{{$select.selected.name}} </ui-select-match> <ui-select-choices repeat="row in dataList | filter: $select.search" refresh="refreshList($select.search)"' +
+                'refresh-delay="200"> <span ng-bind-html="row.name | highlight: $select.search"></span></ui-select-choices></ui-select></div>',
+            scope: {
+                'model': '=ngModel',
+                'numberLimit': '@'
+            },
+        };
+        return directive;
+        function link(scope, element, attrs, ctrl) {
+            $timeout(function () {
+                var tempDataList = [];
+                scope.dataList=[];
+                if (attrs.numberLimit != undefined) {
+                    for (var i = 0; i < attrs.numberLimit; i++) {
+                        var item = scope.$parent.vm.memberType[i];
+                        scope.dataList.push(item);
+                    }
+                }
+            });
+
+            scope.$watch('model', function () {
+                scope.$eval(attrs.ngModel + ' = model');
+            });
+            scope.$watch(attrs.ngModel, function (val) {
+                scope.model = val;
+                ctrl.$setViewValue(val);
+                if (angular.isDefined(attrs.callFunc)) {
+                    scope.callFunc();
+                }
+            });
+        }
+    }]);
+
+    //player-type-dropdown
+    myApp.directive('playerTypeDropdown', ['$timeout', function playerTypeDropdownDirectiveFunction($timeout) {
+        //Usage:
+        //<player-type-dropdown></player-type-dropdown>
+        var directive = {
+            link: link,
+            restrict: 'AE',
+            require: '^ngModel',
+            transclude: true,
+            template: '<div><ui-select name="$parent.drpname" ng-model="$parent.model" theme="bootstrap" reset-search-input="true" class="icon-not-end-form-control"' +
+                'ng-required="$parent.isrequired" focus-on="$parent.drpname" ng-disabled="$parent.isDisabled"> <ui-select-match placeholder="search..." title="$parent.drptitle">' +
+                '{{$select.selected.name}} </ui-select-match> <ui-select-choices repeat="row in dataList | filter: $select.search" refresh="refreshList($select.search)"' +
+                'refresh-delay="200"> <span ng-bind-html="row.name | highlight: $select.search"></span></ui-select-choices></ui-select></div>',
+            scope: {
+                'model': '=ngModel',
+                'numberLimit': '@'
+            },
+        };
+        return directive;
+        function link(scope, element, attrs, ctrl) {
+            $timeout(function () {
+                var tempDataList = [];
+                scope.dataList = [];
+                if (attrs.numberLimit != undefined) {
+                    for (var i = 0; i < attrs.numberLimit; i++) {
+                        var item = scope.$parent.vm.memberType[i];
+                        scope.dataList.push(item);
+                    }
+                } else {
+                    scope.dataList = scope.$parent.vm.playerType;
+                }
+            });
+
+            scope.$watch('model', function () {
+                scope.$eval(attrs.ngModel + ' = model');
+            });
+            scope.$watch(attrs.ngModel, function (val) {
+                scope.model = val;
+                ctrl.$setViewValue(val);
+                if (angular.isDefined(attrs.callFunc)) {
+                    scope.callFunc();
+                }
+            });
+        }
+    }]);
 })();
 
