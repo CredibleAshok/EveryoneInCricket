@@ -5,7 +5,7 @@
                 <span ng-class="{'show-field-error': vm.newTeam.name==undefined || vm.newTeam.name==''}">Team Name *:</span>
             </div>
             <div class="col-xs-2">
-                <input type="text" ng-model="vm.newTeam.name" ng-required="true" />
+                <input type="text" ng-model="vm.newTeam.name" ng-required="true" class="form-control" />
             </div>
             <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newTeam.validFrom==undefined}">Valid From</span></div>
             <div class="col-xs-2">
