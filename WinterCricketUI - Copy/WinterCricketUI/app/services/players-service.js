@@ -1,4 +1,4 @@
-﻿// Name: playersSservice
+// Name: playersSservice
 // Type: Angular Service
 // Purpose: Provide list of players available, this is for list of players and not the individual players.
 // Design: On initialisation this service loads the reference data from the server
@@ -13,7 +13,8 @@
         var service = {
             /* These are the operations that are available from this service. */
             getplayersByTeamId: function (teamId) { return getplayersByTeamId(teamId) },
-            getPlayers: function (searchObj) { return getPlayers(searchObj) }
+            getPlayers: function (searchObj) { return getPlayers(searchObj) },
+            getPlayersListByMatchId: function (homeTeamId, awayTeamId) { return getPlayersListByMatchId(homeTeamId, awayTeamId) },
         };
 
         return service;
@@ -55,6 +56,24 @@
             }
         }
 
+        //get  list on the basis on 
+        function getPlayersListByMatchId(homeTeamId, awayTeamId) {
+            var wkUrl = config.apiUrl + 'teamsListByMatchId/';
+            return $http({
+                url: wkUrl,
+                params: { homeTeamId: homeTeamId, awayTeamId: awayTeamId },
+                method: 'GET',
+                isArray: true
+            }).then(success, fail)
+            function success(resp) {
+                return resp.data;
+            }
+            function fail(error) {
+                var msg = "Error getting  list: " + error;
+                //log.logError(msg, error, null, true);
+                throw error; // so caller can see it
+            }
+        }
         
     }
 
