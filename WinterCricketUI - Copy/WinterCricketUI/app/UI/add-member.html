@@ -8,56 +8,55 @@
                 <span ng-class="{'show-field-error': vm.newMember.name==undefined || vm.newMember.name==''}">Member Name *:</span>
             </div>
             <div class="col-xs-2">
-                <input type="text" ng-model="vm.newMember.name" ng-required="true" />
+                <input type="text" ng-model="vm.newMember.name" ng-required="true" class="form-control" />
             </div>
             <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validFrom==undefined}">Member Type</span></div>
             <div class="col-xs-2" ng-if="vm.teamId == undefined">
-                <select ng-model="vm.newMember.memberType">
-                    <option value="1">Player</option>
-                    <option value="2">Manager</option>
-                    <option value="3">Coach</option>
-                    <option value="4">President</option>
-                    <option value="5">Umpire</option>
-                    <option value="6">Scorer</option>
-                </select>
+                <div member-type-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMember.memberType" ng-required="true"></div>
             </div>
             <div class="col-xs-2" ng-if="vm.teamId != undefined">
-                <select ng-model="vm.newMember.memberType">
-                    <option value="1">Player</option>
-                </select>
+                <div member-type-dropdown
+                     class="input-group-btn"
+                     ng-model="vm.newMember.memberType" ng-required="true" number-limit="1"></div>
             </div>
             <div class="col-xs-4" ng-if="vm.teamId != undefined">
                 <div class="col-xs-6"><span ng-class="{'show-field-error': vm.newMember.playerType==undefined}">Player Type</span></div>
                 <div class="col-xs-6">
-                    <select ng-model="vm.newMember.playerType">
-                        <option value="1">Batsman</option>
-                        <option value="2">Bowler</option>
-                        <option value="3">All-rounder</option>
-                    </select>
+                    <div player-type-dropdown
+                         class="input-group-btn"
+                         ng-model="vm.newMember.playerType" ng-required="true"></div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-2">Is Captain</div>
+            <div class="col-xs-2"></div>
             <div class="col-xs-2">
-                <select ng-model="vm.newMember.isCaptain">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="vm.newMember.isCaptain">
+                        Is Captain
+                    </label>
+                </div>
             </div>
-            <div class="col-xs-2">Is WicketKeeper</div>
+            <div class="col-xs-2"></div>
             <div class="col-xs-2">
-                <select ng-model="vm.newMember.isWicketKeeper">
-                    <option value="1">Yes</option>
-                    <option value="2">No</option>
-                </select>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="vm.newMember.isWicketKeeper">
+                        Is WicketKeeper
+                    </label>
+                </div>
             </div>
-            <div class="col-xs-2">Playing Hand</div>
+            <div class="col-xs-2"></div>
             <div class="col-xs-2">
-                <select ng-model="vm.newMember.isWicketKeeper">
-                    <option value="1">Left Hand</option>
-                    <option value="2">Right Hand</option>
-                </select>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="vm.newMember.playingHand">
+                        Is Left Hander
+                    </label>
+                </div>
             </div>
         </div>
         <div class="row">
