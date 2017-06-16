@@ -1,6 +1,6 @@
 <div class="row" ng-controller="addResultCtrl as vm">
     <form name="addResultForm">
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span>Match Id:</span>
             </div>
@@ -21,7 +21,7 @@
                      ng-model="vm.newResult.lostBy" ng-required="true" data-is-disabled="true"></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">Decided To Bat</div>
             <div class="col-xs-2">
                 <div team-dropdown
@@ -55,7 +55,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 pull-elements-right">
                 <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
                 <button ng-disabled="addResultForm.$invalid" ng-click="vm.saveResult()">Save</button>
             </div>
