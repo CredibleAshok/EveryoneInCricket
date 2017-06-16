@@ -1,6 +1,6 @@
 <div class="row" ng-controller="addMatchCtrl as vm">
     <form name="addMatchForm">
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newMatch.series==undefined}">Series *:</span>
             </div>
@@ -23,7 +23,7 @@
                 <span ng-show="(vm.newMatch.awayTeam != undefined && vm.newMatch.homeTeam != undefined) && (vm.newMatch.homeTeam.name == vm.newMatch.awayTeam.name)" style="color:red;">Home Team and Away team can not be same.</span>
             </div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newMatch.matchDate==undefined}">Date*</span>
             </div>
@@ -46,7 +46,7 @@
                      ng-model="vm.newMatch.matchType" ng-required="true"></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMatch.venue==undefined}">Venue*</span></div>
             <div class="col-xs-2">
                 <div venue-dropdown
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 pull-elements-right">
                 <button ng-disabled="addMatchForm.$invalid" ng-click="vm.saveMatch()">Save</button>
             </div>
         </div>
