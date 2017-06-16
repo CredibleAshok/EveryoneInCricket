@@ -1,4 +1,4 @@
-﻿//addVenuCtrl
+//addVenuCtrl
 (function () {
     myApp.controller('addVenuCtrl', function ($scope, $http, $stateParams, venuesSservice) {
         var vm = this;
@@ -18,3 +18,4 @@
         getProfile();
     });
 })();
+ 
