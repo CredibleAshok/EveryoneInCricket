@@ -17,10 +17,33 @@
             initilize: function () { return initilize() },
             getCountryList: function () { return countries; },
             getStateByCountryId: function (countryId) { return getStateByCountryId(countryId) },
-            getSuburbByStateId: function (stateId) { return getSuburbByStateId(stateId) }
+            getSuburbByStateId: function (stateId) { return getSuburbByStateId(stateId) },
+            // post methods
+            saveVenue: function (newVenue) { return saveVenue(newVenue) }
         };
 
         return service;
+
+        //#region Post Methods
+        function saveVenue(newVenue) {
+            var wkUrl = config.apiUrl + 'saveVenue/';
+            return $http({
+                url: wkUrl,
+                params: { newVenue: newVenue },
+                method: 'POST',
+                isArray: true
+            }).then(success, fail)
+            function success(resp) {
+                return resp.data;
+            }
+            function fail(error) {
+                var msg = "Error getting  list: " + error;
+                //log.logError(msg, error, null, true);
+                throw error; // so caller can see it
+            }
+        }
+        //#endregion Post Methods
+
         //get  list on the basis on 
         function getVenuesList() {
             var wkUrl = config.apiUrl + 'getVenuesList/';
