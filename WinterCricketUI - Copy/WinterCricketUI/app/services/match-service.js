@@ -122,6 +122,26 @@
                 throw error; // so caller can see it
             }
         }
+
+        //#region Post Methods
+        function saveNewMatch(newMatch) {
+            var wkUrl = config.apiUrl + 'saveMatch/';
+            return $http({
+                url: wkUrl,
+                params: { newMatch: newMatch },
+                method: 'POST',
+                isArray: true
+            }).then(success, fail)
+            function success(resp) {
+                return resp.data;
+            }
+            function fail(error) {
+                var msg = "Error getting  list: " + error;
+                //log.logError(msg, error, null, true);
+                throw error; // so caller can see it
+            }
+        }
+        //#endregion Post Methods
     }
 
 })();
