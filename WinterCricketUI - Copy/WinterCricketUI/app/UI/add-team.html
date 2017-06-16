@@ -1,6 +1,6 @@
 <div class="row" ng-controller="addTeamCtrl as vm">
     <form name="addTeamForm">
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newTeam.name==undefined || vm.newTeam.name==''}">Team Name *:</span>
             </div>
@@ -26,7 +26,7 @@
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newTeam.captain==undefined}">Captain*</span>
             </div>
@@ -36,8 +36,8 @@
                      ng-model="vm.newTeam.captain" ng-required="true"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12">
+        <div class="row form-group">
+            <div class="col-xs-12 pull-elements-right">
                 <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
                 <button ng-disabled="addTeamForm.$invalid" ng-click="vm.saveTeam()">Save</button>
             </div>
