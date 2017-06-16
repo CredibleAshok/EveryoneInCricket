@@ -1,6 +1,6 @@
 //addTeamCtrl
 (function () {
-    myApp.controller('addTeamCtrl', function ($scope, $http, $stateParams, playersSservice) {
+    myApp.controller('addTeamCtrl', function ($scope, $http, $stateParams, playersSservice, teamsSservice) {
         var vm = this;
         vm.newVenue = {};
         //#region datepicker settings valid To
@@ -37,10 +37,10 @@
         };
         //#endregion datepicker settings  valid From
         vm.saveTeam = function () {
-            playersSservice.saveNewTeam(vm.newTeam).then(function (resp) {
-                console.log("new Venue saving passed.");
+            teamsSservice.saveNewTeam(vm.newTeam).then(function (resp) {
+                console.log("new Team saving passed.");
             }, function () {
-                console.log("new Venue saving failed.");
+                console.log("new Team saving failed.");
             });
         };
 
