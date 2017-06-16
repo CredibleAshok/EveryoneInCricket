@@ -1,12 +1,12 @@
 //addResultCtrl
 (function () {
-    myApp.controller('addResultCtrl', function ($scope, $http, $stateParams, matchSservice, filterFilter) {
+    myApp.controller('addResultCtrl', function ($scope, $http, $stateParams, matchSservice, filterFilter, resultSservice) {
         var vm = this;
         vm.matchId = $stateParams.matchId;
         vm.newResult = {};
         vm.winningModeList = [{ "id": 1, "name": "Wickets" }, { "id": 2, "name": "Runs" }];
         vm.saveResult = function () {
-            resultSservice.saveNewVenue(vm.newResult).then(function (resp) {
+            resultSservice.saveResult(vm.newResult).then(function (resp) {
                 console.log("new Venue saving passed.");
             }, function () {
                 console.log("new Venue saving failed.");
