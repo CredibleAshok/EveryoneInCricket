@@ -1,6 +1,6 @@
 <div class="row" ng-controller="addVenuCtrl as vm">
     <form name="addVenueForm">
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newVenue.name==undefined || vm.newVenue.name==''}">Name *:</span>
             </div>
@@ -11,7 +11,7 @@
             <div class="col-xs-2">
                 <div country-dropdown
                      class="input-group-btn"
-                     ng-model="vm.newVenue.country" 
+                     ng-model="vm.newVenue.country"
                      ng-required="true"
                      drpname="countryDropdown"
                      drptitle="country..."></div>
@@ -26,7 +26,7 @@
                      drptitle="state..."></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row form-group">
             <div class="col-xs-2">
                 <span ng-class="{'show-field-error': vm.newVenue.suburb==undefined}">Suburb*</span>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 pull-elements-right">
                 <!--This button will be disabled unless all fields have value in them. because all controls have ng-required = ture, if any controls triggers required as invalid, this ng-disable will return true -->
                 <button ng-disabled="addVenueForm.$invalid" ng-click="vm.saveVenue()">Save</button>
             </div>
