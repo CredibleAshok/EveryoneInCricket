@@ -3,6 +3,47 @@
     myApp.controller('addMatchCtrl', function ($scope, $http, $stateParams, matchSservice, teamsSservice) {
         var vm = this;
         vm.newMatch = {};
+        //#region initial data
+        vm.newMatch.series = {
+            "seriesId": 1,
+            "seriesName": "Series 1",
+            "year": "2016",
+            "seriesValidFrom": "1 March 2016",
+            "seriesValidTo": "17 March 2016"
+        };
+
+        vm.newMatch.homeTeam = {
+            "teamId": 1,
+            "name": "Bayswater",
+            "validFrom": "10-Jan-2010",
+            "validTo": "10-Jan-2020",
+            "teamFlagId": 1,
+            "captain": "Captain 1"
+        };
+
+        vm.newMatch.awayTeam = {
+            "teamId": 2,
+            "name": "Bentley",
+            "validFrom": "10-Jan-2010",
+            "validTo": "10-March-2020",
+            "teamFlagId": 2,
+            "captain": "Captain 2"
+        };
+        vm.newMatch.matchDate = new Date();
+        vm.newMatch.matchType = {
+            "matchTypeId": 1,
+            "name": "T-20"
+        };
+        vm.newMatch.venue = {
+            "venueId": 1,
+            "name": "Venue 1",
+            "countryId": 1,
+            "stateId": 1,
+            "suburb": 2,
+            "postCode": 6001
+        }
+        //#endregion initial data
+
         //#region datepicker settings
         vm.format = 'dd/MMMM/yyyy';
         vm.popup1 = {
