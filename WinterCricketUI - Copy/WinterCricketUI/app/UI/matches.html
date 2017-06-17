@@ -1,4 +1,4 @@
-﻿<div ng-controller="matchesCtrl as vm">
+<div ng-controller="matchesCtrl as vm">
     <div class="row">
         <div class="col-md-4">
             <div style="float:left;">
@@ -43,14 +43,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Upcoming</a>
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">Upcoming</a>
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
                                 <div ng-show="vm.upComingExpanded && vm.matchView=='List'" class="col-md-12">
-                                    <match-detail-tpl table-data="vm.upComingmatchesList"></match-detail-tpl>
+                                    <match-detail-tpl table-data="vm.upComingmatchesList" display-type="1"></match-detail-tpl>
                                 </div>
                                 <div ng-show="vm.upComingExpanded && vm.matchView=='Calendar'" class="col-md-12">
                                     <div class="row">
@@ -66,14 +66,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Completed</a>
+                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">Completed</a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
                                 <div ng-show="vm.completedExpanded && vm.matchView=='List'" class="col-md-12">
-                                    <match-detail-tpl table-data="vm.completedMatchesList"></match-detail-tpl>
+                                    <match-detail-tpl table-data="vm.completedMatchesList" display-type="2"></match-detail-tpl>
                                 </div>
                                 <div ng-show="vm.completedExpanded && vm.matchView=='Calendar'" class="col-md-12">
                                     <div class="row">
@@ -89,6 +89,4 @@
             </div>
         </div>
     </div>
-    
-    
 </div>
