@@ -2,7 +2,14 @@
 (function () {
     myApp.controller('addTeamCtrl', function ($scope, $http, $stateParams, playersSservice, teamsSservice) {
         var vm = this;
-        vm.newVenue = {};
+        vm.newTeam = {};
+
+        //#region intial data
+        vm.newTeam.name = "Test Team";
+        vm.newTeam.validFrom = new Date();
+        vm.newTeam.validTo = new Date();
+        //#endregion intial data
+
         //#region datepicker settings valid To
         vm.validTo = {
             opened: false
@@ -45,7 +52,7 @@
         };
 
         var getProfile = function () {
-            console.log("addVenuCtrl controller loaded.");
+            console.log("addTeamCtrl controller loaded.");
         };
         getProfile();
     });
