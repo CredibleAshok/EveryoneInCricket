@@ -12,17 +12,17 @@
                     <td colspan="2">Results</td>
                     <td>Score Card</td>
                 </tr>
-            <tr ng-repeat="row in tableData">
+            <tr ng-repeat="row in vm.myData">
                 <td>{{row.matchTypeDetails.name}}</td>
                 <td>
-                    <a ui-sref="playersList({ teamId: row.homeTeamDetails.teamId})">{{row.homeTeamDetails.name}}</a>
+                    <a ui-sref="playersList({ teamId: row.matchDetails.homeTeamDetails.teamId})">{{row.matchDetails.homeTeamDetails.name}}</a>
                 </td>
                 <td>VS</td>
-                <td><a ui-sref="playersList({ teamId: row.awayTeamDetails.teamId})">{{row.awayTeamDetails.name}}</a></td>
+                <td><a ui-sref="playersList({ teamId: row.matchDetails.awayTeamDetails.teamId})">{{row.matchDetails.awayTeamDetails.name}}</a></td>
                 <!--<td>{{row.matchTime}}</td>-->
-                <td>{{row.matchDate}}</td>
-                <!--<td>{{row.venueDetails.name}}</td>-->
-                <td>{{row.resultDetails.wonByDetails.name}} Won By {{row.resultDetails.byRuns}} {{row.resultDetails.byWickets}} {{row.resultDetails.winningModeDetails.name}}</td>
+                <td>{{row.row.matchDetails.matchDate}}</td>
+                <!--<td>{{row.matchDetails.venueDetails.name}}</td>-->
+                <td>{{row.wonByDetails.name}} Won By {{row..byRuns}} {{row..byWickets}} {{row..winningModeDetails.name}}</td>
                 <td>
                     <div class="row">
                         <div class="col-md-10" ng-repeat="matchStatDetailRow in row.matchStatsDetails">
@@ -60,35 +60,35 @@
                 <td>Score Card</td>
             </tr>
             <tr ng-repeat="row in vm.myData">
-                <td>{{row.matchTypeDetails.name}}</td>
+                <td>{{row.MatchDetails.MatchTypeDetails.Name}}</td>
                 <td>
-                    <a ui-sref="playersList({ teamId: row.homeTeamDetails.teamId})">{{row.homeTeamDetails.name}}</a>
+                    <a ui-sref="playersList({ teamId: row.MatchDetails.HomeTeamDetails.TeamId})">{{row.MatchDetails.HomeTeamDetails.Name}}</a>
                 </td>
                 <td>VS</td>
-                <td><a ui-sref="playersList({ teamId: row.awayTeamDetails.teamId})">{{row.awayTeamDetails.name}}</a></td>
-                <td>{{row.matchTime}}</td>
-                <td>{{row.matchDate}}</td>
-                <td>{{row.venueDetails.name}}</td>
-                <td>{{row.resultDetails.wonByDetails.name}} Won By {{row.resultDetails.byRuns}} {{row.resultDetails.byWickets}} {{row.resultDetails.winningModeDetails.name}}</td>
+                <td><a ui-sref="playersList({ teamId: row.MatchDetails.AwayTeamDetails.TeamId})">{{row.MatchDetails.AwayTeamDetails.Name}}</a></td>
+                <td>{{row.MatchDetails.MatchTime}}</td>
+                <td>{{row.MatchDetails.MatchDate}}</td>
+                <td>{{row.MatchDetails.VenueDetails.Name}}</td>
+                <td>{{row.WonByDetails.Name}} Won By {{row.ByRuns}} {{row.ByWickets}} {{row.WinningModeDetails.Name}}</td>
                 <td>
                     <div class="row">
-                        <div class="col-md-12" ng-repeat="matchStatDetailRow in row.matchStatsDetails">
-                            {{matchStatDetailRow.teamDetails.name}} ( {{matchStatDetailRow.runsScored}} / {{matchStatDetailRow.wicketsLost}} ) - in {{matchStatDetailRow.oversReceived}} overs
+                        <div class="col-md-12" ng-repeat="matchStatDetailRow in row.MatchStatDetails">
+                            {{matchStatDetailRow.TeamDetail.Name}} ( {{matchStatDetailRow.RunsScored}} / {{matchStatDetailRow.WicketsLost}} ) - in {{matchStatDetailRow.OversReceived}} overs
                         </div>
                     </div>
-                    <div class="row" ng-show="row.matchStatDetails.length==0">
-                        <a show-if-feature="Add Score Card" ui-sref="addScoreCard({matchId: row.matchId})">Add Score Card</a>
+                    <div class="row" ng-show="row.MatchStatDetails.length==0">
+                        <a show-if-feature="Add Score Card" ui-sref="addScoreCard({matchId: row.MatchId})">Add Score Card</a>
                     </div>
                 </td>
                 <td>
                     <!--<a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a>
                     <a show-if-feature="Add Result" ui-sref="addResult({matchId: row.matchId})">Add Result</a>
                     <a show-if-feature="Modify Result" ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>-->
-                    <a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.homeTeamDetails.teamId, awayTeamId: row.awayTeamDetails.teamId})">Score Card</a>
+                    <!--<a ui-sref="liveScore({ matchId: row.matchId, homeTeamId: row.row.matchDetails.homeTeamDetails.teamId, awayTeamId: row.matchDetails.awayTeamDetails.teamId})">Score Card</a>
                     <a  ui-sref="addResult({matchId: row.matchId})">Add Result</a>
                     <a  ui-sref="modifyResult({matchId: row.matchId})">Modify Result</a>
                     <a ui-sref="addMatchStats({matchId: row.matchId})">Add Match Stats</a>
-                    <a ui-sref="addIndividualScore({matchId: row.matchId})">Add Individual Scores</a>
+                    <a ui-sref="addIndividualScore({matchId: row.matchId})">Add Individual Scores</a>-->
                 </td>
             </tr>
         </table>
