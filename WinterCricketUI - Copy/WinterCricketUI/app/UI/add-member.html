@@ -10,7 +10,7 @@
             <div class="col-xs-2">
                 <input type="text" ng-model="vm.newMember.name" ng-required="true" class="form-control" />
             </div>
-            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.validFrom==undefined}">Member Type</span></div>
+            <div class="col-xs-2"><span ng-class="{'show-field-error': vm.newMember.memberType==undefined}">Member Type</span></div>
             <div class="col-xs-2" ng-if="vm.teamId == undefined">
                 <div member-type-dropdown
                      class="input-group-btn"
