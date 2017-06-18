@@ -4,6 +4,42 @@
         var vm = this;
         vm.matchId = $stateParams.matchId;
         vm.newResult = {};
+
+        //#region initial data
+        vm.matchId = 1;
+        vm.newResult.wonBy = {
+            "teamId": 1,
+            "name": "Bayswater",
+            "validFrom": "10-Jan-2010",
+            "validTo": "10-Jan-2020",
+            "teamFlagId": 1,
+            "captain": "Captain 1"
+        };
+        vm.newResult.lostBy = {
+            "teamId": 2,
+            "name": "Bentley",
+            "validFrom": "10-Jan-2010",
+            "validTo": "10-March-2020",
+            "teamFlagId": 2,
+            "captain": "Captain 2"
+        };
+        vm.newResult.decidedToBat = {
+            "teamId": 2,
+            "name": "Bentley",
+            "validFrom": "10-Jan-2010",
+            "validTo": "10-March-2020",
+            "teamFlagId": 2,
+            "captain": "Captain 2"
+        };
+        vm.newResult.winningMode = {
+            "winningModeId": 1,
+            "name": "Runs",
+        };
+        vm.newResult.byRuns = 12;
+        vm.newResult.byWickets = 2;
+
+        //#endregion initial data
+
         vm.winningModeList = [{ "id": 1, "name": "Wickets" }, { "id": 2, "name": "Runs" }];
         vm.saveResult = function () {
             resultSservice.saveResult(vm.newResult).then(function (resp) {
