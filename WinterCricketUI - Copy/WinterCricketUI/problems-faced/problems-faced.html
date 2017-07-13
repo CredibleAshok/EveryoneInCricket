@@ -46,6 +46,15 @@
         already selected date from datepicker. for this to happen just keep the ng-model value same for both controls.
     </pre>
     </div>
+    <div id="Javascript">
+        <h2>Javascript</h2>
+        <pre>
+            Arrays and objects are passed by reference and not be value, This is similar to C#. for example.
+            var array1 = [];
+            array1[0] = 10; array1[1] = 20; 
+            Assign,  array2 = array1, change anything to array1, it will be updated in array2 as well. So we use angular.copy to make a deep copy of object and array.
+</pre>
+    </div>
     <div id="bootstrap">
         <h2>BootStrap</h2>
         <pre>
@@ -68,7 +77,6 @@ You make variables of Interface types, but always instantiate them by class. An 
 for example, IAddress is implemented by two concerete classes Address and CustomAddress. When we created instances then common methods of IAddress must implementation in concerete classes.
             IAddress address = new Address();
             IAddress customAddress = new CustomAddress();
-
 This whole thing is used in Dependency Injection. DI is used in IOC, Unity container and other design patterns.
 </pre>
     </div>
