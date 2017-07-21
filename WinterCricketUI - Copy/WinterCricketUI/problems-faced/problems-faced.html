@@ -84,6 +84,10 @@ This whole thing is used in Dependency Injection. DI is used in IOC, Unity conta
             Abstract Class: When we use abstract methods then we create this class. This forces derived class to have its own implementation. It can have its own implementation.
             Interface: This only have declaration and forces derived class to implement all in interface.
         </pre>
+                        <pre>
+            Web API: Response propertyNames can be sent in camelCasing. serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            This setting is usally found in application_start
+        </pre>
     </div>
     <div id="entity">
         <h2>Entity Framework</h2>
